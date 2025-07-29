@@ -233,7 +233,7 @@
                 const moblanProfitPerUnit = spodumenePrice - moblanCosts;
 
                 // Calculate total annual profit before 'Times Revenue'
-                const totalAnnualProfit = (nalProduction * nalProfitPerUnit) + (moblanProduction * moblanProfitPerUnit);
+                const totalAnnualProfit = (nalProduction * nalProfitPerUnit) + (moblanProduction * 0.60 * moblanProfitPerUnit); // Apply 60% to Moblan production
 
                 // Define the 'Times Revenue' multiples
                 const timesRevenueMultiples = [7, 8, 10, 15, 20, 25, 30];
@@ -314,4 +314,3 @@
     </script>
 </body>
 </html>
-
