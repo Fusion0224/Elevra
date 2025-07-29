@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Calculator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0; /* Ensure no default body margin */
+            background-color: #e0f2fe; /* Light blue background for a fresh feel */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <div class="flex flex-grow p-4">
+        <div class="flex flex-grow bg-white rounded-xl shadow-2xl overflow-hidden">
+            <!-- Left Section: Inputs (20%) -->
+            <div class="w-1/5 bg-gradient-to-br from-blue-500 to-blue-700 p-8 flex flex-col space-y-1 text-white shadow-lg">
+                <!-- # Shares -->
+                <div class="flex flex-col">
+                    <label for="numShares" class="text-sm font-medium mb-0.5 opacity-90"># Shares</label>
+                    <input type="number" id="numShares" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="1">
+                </div>
+
+                <!-- SOI -->
+                <div class="flex flex-col">
+                    <label for="sharesOnIssue" class="text-sm font-medium mb-0.5 opacity-90">SOI</label>
+                    <input type="text" id="sharesOnIssue" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="168,241,667">
+                </div>
+
+                <!-- Spodumene Price -->
+                <div class="flex flex-col">
+                    <label for="spodumenePrice" class="text-sm font-medium mb-0.5 opacity-90">Spodumene Price</label>
+                    <div class="flex items-center">
+                        <span class="text-white text-xs mr-1">$</span>
+                        <input type="number" id="spodumenePrice" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="1000">
+                    </div>
+                </div>
+
+                <!-- Exchange Rate -->
+                <div class="flex flex-col">
+                    <label for="exchangeRate" class="text-sm font-medium mb-0.5 opacity-90">Exch Rate</label>
+                    <input type="number" id="exchangeRate" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="0.65">
+                </div>
+
+                <!-- Costs Header -->
+                <h3 class="text-xl font-bold mt-6 mb-2 border-b border-blue-400 pb-2">Costs</h3>
+
+                <!-- NAL Costs -->
+                <div class="flex flex-col">
+                    <label for="nalCosts" class="text-sm font-medium mb-0.5 opacity-90">NAL</label>
+                    <div class="flex items-center">
+                        <span class="text-white text-xs mr-1">$</span>
+                        <input type="number" id="nalCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="750">
+                    </div>
+                </div>
+
+                <!-- Moblan Costs -->
+                <div class="flex flex-col">
+                    <label for="moblanCosts" class="text-sm font-medium mb-0.5 opacity-90">Moblan</label>
+                    <div class="flex items-center">
+                        <span class="text-white text-xs mr-1">$</span>
+                        <input type="number" id="moblanCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="550">
+                    </div>
+                </div>
+
+                <!-- Production Header -->
+                <h3 class="text-xl font-bold mt-6 mb-2 border-b border-blue-400 pb-2">Production</h3>
+
+                <!-- NAL Production -->
+                <div class="flex flex-col">
+                    <label for="nalProduction" class="text-sm font-medium mb-0.5 opacity-90">NAL</label>
+                    <input type="text" id="nalProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="210,000">
+                </div>
+
+                <!-- Moblan Production -->
+                <div class="flex flex-col">
+                    <label for="moblanProduction" class="text-sm font-medium mb-0.5 opacity-90">Moblan</label>
+                    <input type="text" id="moblanProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="600,000">
+                </div>
+
+                <!-- Calculate Button -->
+                <button id="calculateButton" class="mt-8 px-6 py-2 bg-blue-200 text-blue-800 font-bold rounded-lg shadow-md hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:ring-opacity-75 transition duration-200 ease-in-out">
+                    Calculate
+                </button>
+            </div>
+
+            <!-- Right Section: Outputs (80%) -->
+            <div class="w-4/5 flex flex-col p-8 space-y-6 bg-gray-50">
+                <!-- Top Output Area (30%) -->
+                <div class="h-[30%] bg-white p-6 border border-gray-200 rounded-xl shadow-lg flex flex-col">
+                    <div id="output1Content" class="mt-2 text-gray-700 text-sm flex-grow overflow-auto">
+                        <!-- Content will be dynamically added here -->
+                    </div>
+                </div>
+
+                <!-- Bottom Output Area (70%) -->
+                <div class="h-[70%] bg-white p-6 border border-gray-200 rounded-xl shadow-lg flex flex-col">
+                    <div id="output2Content" class="mt-2 text-gray-700 text-lg flex-grow overflow-auto">
+                        <!-- Table structure for outputs -->
+                        <table class="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden text-sm">
+                            <thead class="bg-blue-600 text-white">
+                                <tr>
+                                    <th class="py-2 px-4 text-left">Times Revenue</th>
+                                    <th class="py-2 px-4 text-left">Market Cap</th>
+                                    <th class="py-2 px-4 text-left">Share Price USD</th>
+                                    <th class="py-2 px-4 text-left">My Total US$</th>
+                                    <th class="py-2 px-4 text-left">In AUD</th>
+                                    <th class="py-2 px-4 text-left">My Total AUD</th>
+                                </tr>
+                            </thead>
+                            <tbody id="outputTableBody">
+                                <!-- Table rows will be dynamically inserted here by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Cookie helper functions
+            function setCookie(name, value, days) {
+                let expires = "";
+                if (days) {
+                    const date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+            }
+
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for(let i=0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+
+            // Function to format a number with commas
+            function formatNumberWithCommas(number) {
+                return number.toLocaleString();
+            }
+
+            // Function to parse a comma-formatted string to a number
+            function parseNumberFromFormattedString(str) {
+                return parseFloat(str.replace(/,/g, '')) || 0;
+            }
+
+            // Apply formatting on load and handle input changes for specific fields
+            function setupFormattedInput(id) {
+                const $input = $(`#${id}`);
+                // Set initial value formatted
+                $input.val(formatNumberWithCommas(parseNumberFromFormattedString($input.val())));
+
+                // When input is focused, remove commas for easier editing
+                $input.on('focus', function() {
+                    $(this).val(parseNumberFromFormattedString($(this).val()));
+                });
+
+                // When input loses focus, re-add commas
+                $input.on('blur', function() {
+                    $(this).val(formatNumberWithCommas(parseNumberFromFormattedString($(this).val())));
+                });
+            }
+
+            // Function to initialize input fields with cookie values or defaults
+            function initializeInputField(id, defaultValue, isFormatted = false) {
+                const $input = $(`#${id}`);
+                let storedValue = getCookie(`${id}_cookie`);
+
+                if (storedValue !== null) {
+                    $input.val(storedValue);
+                } else {
+                    // If no cookie, use the default value from HTML or provided
+                    $input.val(defaultValue);
+                }
+
+                // If it's a formatted input, apply formatting after setting value
+                if (isFormatted) {
+                    setupFormattedInput(id); // This will format the value correctly
+                }
+            }
+
+            // Function to perform calculations and update outputs
+            function updateOutputs() {
+                // Get input values, converting formatted strings to numbers where necessary.
+                const numShares = parseFloat($('#numShares').val()) || 0;
+                const sharesOnIssue = parseNumberFromFormattedString($('#sharesOnIssue').val());
+                const spodumenePrice = parseFloat($('#spodumenePrice').val()) || 0;
+                const exchangeRate = parseFloat($('#exchangeRate').val()) || 0; // Get exchange rate
+                const nalCosts = parseFloat($('#nalCosts').val()) || 0;
+                const moblanCosts = parseFloat($('#moblanCosts').val()) || 0;
+                const nalProduction = parseNumberFromFormattedString($('#nalProduction').val());
+                const moblanProduction = parseNumberFromFormattedString($('#moblanProduction').val());
+
+                // Store current input values in cookies
+                setCookie('numShares_cookie', $('#numShares').val(), 30);
+                setCookie('sharesOnIssue_cookie', $('#sharesOnIssue').val(), 30);
+                setCookie('spodumenePrice_cookie', $('#spodumenePrice').val(), 30);
+                setCookie('exchangeRate_cookie', $('#exchangeRate').val(), 30); // Store exchange rate
+                setCookie('nalCosts_cookie', $('#nalCosts').val(), 30);
+                setCookie('moblanCosts_cookie', $('#moblanCosts').val(), 30);
+                setCookie('nalProduction_cookie', $('#nalProduction').val(), 30);
+                setCookie('moblanProduction_cookie', $('#moblanProduction').val(), 30);
+
+                console.log("Current Inputs:", {
+                    numShares,
+                    sharesOnIssue,
+                    spodumenePrice,
+                    exchangeRate,
+                    nalCosts,
+                    moblanCosts,
+                    nalProduction,
+                    moblanProduction
+                });
+
+                // Calculate base profit per unit
+                const nalProfitPerUnit = spodumenePrice - nalCosts;
+                const moblanProfitPerUnit = spodumenePrice - moblanCosts;
+
+                // Calculate total annual profit before 'Times Revenue'
+                const totalAnnualProfit = (nalProduction * nalProfitPerUnit) + (moblanProduction * moblanProfitPerUnit);
+
+                // Define the 'Times Revenue' multiples
+                const timesRevenueMultiples = [7, 8, 10, 15, 20, 25, 30];
+
+                let tableRowsHtml = '';
+                timesRevenueMultiples.forEach(timesRevenueFactor => {
+                    // Calculate Market Cap
+                    const marketCap = totalAnnualProfit * timesRevenueFactor;
+
+                    // Calculate Share Price USD
+                    const sharePriceUSD = sharesOnIssue > 0 ? marketCap / sharesOnIssue : 0;
+
+                    // Calculate My Total US$
+                    const myTotalUSD = sharePriceUSD * numShares;
+
+                    // Calculate In AUD
+                    const inAUD = exchangeRate > 0 ? sharePriceUSD / exchangeRate : 0; 
+
+                    // Calculate My Total AUD
+                    const myTotalAUD = exchangeRate > 0 ? myTotalUSD / exchangeRate : 0; 
+
+                    tableRowsHtml += `
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200">${timesRevenueFactor}</td>
+                            <td class="py-2 px-4 border-b border-gray-200">$${marketCap.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                            <td class="py-2 px-4 border-b border-gray-200">$${sharePriceUSD.toLocaleString(undefined, { minimumFractionDigits: 3, maximumFractionDigits: 3 })}</td>
+                            <td class="py-2 px-4 border-b border-gray-200">$${myTotalUSD.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                            <td class="py-2 px-4 border-b border-gray-200">$${inAUD.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                            <td class="py-2 px-4 border-b border-gray-200">$${myTotalAUD.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        </tr>
+                    `;
+                });
+
+                // Update the top output area (Area 1)
+                let output1Html = `
+                    <div class="flex justify-between text-sm">
+                        <div class="grid grid-cols-[max-content_max-content_1fr] gap-x-2 items-center w-1/2 pr-4">
+                            <span class="text-right font-bold"># Shares</span><span class="text-center">:</span><span class="text-left">${numShares.toLocaleString()}</span>
+                            <span class="text-right font-bold">SOI</span><span class="text-center">:</span><span class="text-left">${sharesOnIssue.toLocaleString()}</span>
+                            <span class="text-right font-bold">Spodumene Price</span><span class="text-center">:</span><span class="text-left">$${spodumenePrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                            <span class="text-right font-bold">Exch Rate</span><span class="text-center">:</span><span class="text-left">${exchangeRate.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 4 })}</span>
+                        </div>
+                        <div class="grid grid-cols-[max-content_max-content_1fr] gap-x-2 items-center w-1/2 pl-4">
+                            <span class="text-right font-bold">NAL Costs</span><span class="text-center">:</span><span class="text-left">$${nalCosts.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                            <span class="text-right font-bold">Moblan Costs</span><span class="text-center">:</span><span class="text-left">$${moblanCosts.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                            <span class="text-right font-bold">NAL Production</span><span class="text-center">:</span><span class="text-left">${nalProduction.toLocaleString()}</span>
+                            <span class="text-right font-bold">Moblan Production</span><span class="text-center">:</span><span class="text-left">${moblanProduction.toLocaleString()}</span>
+                        </div>
+                    </div>
+                `;
+
+
+                $('#output1Content').html(output1Html);
+                $('#outputTableBody').html(tableRowsHtml); // Update the table body
+            }
+
+            // Initialize all input fields with defaults or cookie values
+            initializeInputField('numShares', '1');
+            initializeInputField('sharesOnIssue', '168,241,667', true); // true for formatted
+            initializeInputField('spodumenePrice', '1000');
+            initializeInputField('exchangeRate', '0.65'); // Updated default value to 0.65
+            initializeInputField('nalCosts', '750');
+            initializeInputField('moblanCosts', '550');
+            initializeInputField('nalProduction', '210,000', true); // true for formatted
+            initializeInputField('moblanProduction', '600,000', true); // true for formatted
+
+            // Attach click event to the new Calculate button
+            $('#calculateButton').on('click', updateOutputs);
+
+            // Attach updateOutputs to other inputs
+            // Note: setupFormattedInput already attaches 'input' listener for formatted fields
+            $('#numShares, #spodumenePrice, #exchangeRate, #nalCosts, #moblanCosts').on('input', updateOutputs);
+
+
+            // Initial call to update outputs when the page loads, after inputs are initialized
+            updateOutputs();
+        });
+    </script>
+</body>
+</html>
+
