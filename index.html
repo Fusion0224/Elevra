@@ -52,38 +52,66 @@
 
                 <!-- Costs Header -->
                 <h3 class="text-xl font-bold mt-6 mb-2 border-b border-blue-400 pb-2">Costs</h3>
-
-                <!-- NAL Costs -->
-                <div class="flex flex-col">
-                    <label for="nalCosts" class="text-sm font-medium mb-0.5 opacity-90">NAL</label>
-                    <div class="flex items-center">
-                        <span class="text-white text-xs mr-1">$</span>
-                        <input type="number" id="nalCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="750">
+                <!-- Costs Grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- NAL Costs -->
+                    <div class="flex flex-col">
+                        <label for="nalCosts" class="text-sm font-medium mb-0.5 opacity-90">NAL</label>
+                        <div class="flex items-center">
+                            <span class="text-white text-xs mr-1">$</span>
+                            <input type="number" id="nalCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="750">
+                        </div>
                     </div>
-                </div>
-
-                <!-- Moblan Costs -->
-                <div class="flex flex-col">
-                    <label for="moblanCosts" class="text-sm font-medium mb-0.5 opacity-90">Moblan</label>
-                    <div class="flex items-center">
-                        <span class="text-white text-xs mr-1">$</span>
-                        <input type="number" id="moblanCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="550">
+                    <!-- Moblan Costs -->
+                    <div class="flex flex-col">
+                        <label for="moblanCosts" class="text-sm font-medium mb-0.5 opacity-90">Moblan</label>
+                        <div class="flex items-center">
+                            <span class="text-white text-xs mr-1">$</span>
+                            <input type="number" id="moblanCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="550">
+                        </div>
+                    </div>
+                    <!-- Ewoyaa Costs -->
+                    <div class="flex flex-col">
+                        <label for="ewoyaaCosts" class="text-sm font-medium mb-0.5 opacity-90">Ewoyaa</label>
+                        <div class="flex items-center">
+                            <span class="text-white text-xs mr-1">$</span>
+                            <input type="number" id="ewoyaaCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="600">
+                        </div>
+                    </div>
+                    <!-- CLM Costs -->
+                    <div class="flex flex-col">
+                        <label for="clmCosts" class="text-sm font-medium mb-0.5 opacity-90">CLM</label>
+                        <div class="flex items-center">
+                            <span class="text-white text-xs mr-1">$</span>
+                            <input type="number" id="clmCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="500">
+                        </div>
                     </div>
                 </div>
 
                 <!-- Production Header -->
                 <h3 class="text-xl font-bold mt-6 mb-2 border-b border-blue-400 pb-2">Production</h3>
-
-                <!-- NAL Production -->
-                <div class="flex flex-col">
-                    <label for="nalProduction" class="text-sm font-medium mb-0.5 opacity-90">NAL</label>
-                    <input type="text" id="nalProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="210,000">
-                </div>
-
-                <!-- Moblan Production -->
-                <div class="flex flex-col">
-                    <label for="moblanProduction" class="text-sm font-medium mb-0.5 opacity-90">Moblan</label>
-                    <input type="text" id="moblanProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="600,000">
+                <!-- Production Grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- NAL Production -->
+                    <div class="flex flex-col">
+                        <label for="nalProduction" class="text-sm font-medium mb-0.5 opacity-90">NAL</label>
+                        <input type="text" id="nalProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="210,000">
+                    </div>
+                    <!-- Moblan Production -->
+                    <div class="flex flex-col">
+                        <label for="moblanProduction" class="text-sm font-medium mb-0.5 opacity-90">Moblan</label>
+                        <input type="text" id="moblanProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="600,000">
+                    </div>
+                    <!-- Ewoyaa Production -->
+                    <div class="flex flex-col">
+                        <label for="ewoyaaProduction" class="text-sm font-medium mb-0.5 opacity-90">Ewoyaa</label>
+                        <input type="text" id="ewoyaaProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="300,000">
+                    </div>
+                    <!-- CLM Production -->
+                    <div class="flex flex-col">
+                        <label for="clmProduction" class="text-sm font-medium mb-0.5 opacity-90">CLM</label>
+                        <input type="text" id="clmProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="250,000">
+                    </div>
                 </div>
 
                 <!-- Calculate Button -->
@@ -201,21 +229,29 @@
                 const numShares = parseFloat($('#numShares').val()) || 0;
                 const sharesOnIssue = parseNumberFromFormattedString($('#sharesOnIssue').val());
                 const spodumenePrice = parseFloat($('#spodumenePrice').val()) || 0;
-                const exchangeRate = parseFloat($('#exchangeRate').val()) || 0; // Get exchange rate
+                const exchangeRate = parseFloat($('#exchangeRate').val()) || 0;
                 const nalCosts = parseFloat($('#nalCosts').val()) || 0;
                 const moblanCosts = parseFloat($('#moblanCosts').val()) || 0;
+                const ewoyaaCosts = parseFloat($('#ewoyaaCosts').val()) || 0;
+                const clmCosts = parseFloat($('#clmCosts').val()) || 0;
                 const nalProduction = parseNumberFromFormattedString($('#nalProduction').val());
                 const moblanProduction = parseNumberFromFormattedString($('#moblanProduction').val());
+                const ewoyaaProduction = parseNumberFromFormattedString($('#ewoyaaProduction').val());
+                const clmProduction = parseNumberFromFormattedString($('#clmProduction').val());
 
                 // Store current input values in cookies
                 setCookie('numShares_cookie', $('#numShares').val(), 30);
                 setCookie('sharesOnIssue_cookie', $('#sharesOnIssue').val(), 30);
                 setCookie('spodumenePrice_cookie', $('#spodumenePrice').val(), 30);
-                setCookie('exchangeRate_cookie', $('#exchangeRate').val(), 30); // Store exchange rate
+                setCookie('exchangeRate_cookie', $('#exchangeRate').val(), 30);
                 setCookie('nalCosts_cookie', $('#nalCosts').val(), 30);
                 setCookie('moblanCosts_cookie', $('#moblanCosts').val(), 30);
+                setCookie('ewoyaaCosts_cookie', $('#ewoyaaCosts').val(), 30);
+                setCookie('clmCosts_cookie', $('#clmCosts').val(), 30);
                 setCookie('nalProduction_cookie', $('#nalProduction').val(), 30);
                 setCookie('moblanProduction_cookie', $('#moblanProduction').val(), 30);
+                setCookie('ewoyaaProduction_cookie', $('#ewoyaaProduction').val(), 30);
+                setCookie('clmProduction_cookie', $('#clmProduction').val(), 30);
 
                 console.log("Current Inputs:", {
                     numShares,
@@ -224,16 +260,22 @@
                     exchangeRate,
                     nalCosts,
                     moblanCosts,
+                    ewoyaaCosts,
+                    clmCosts,
                     nalProduction,
-                    moblanProduction
+                    moblanProduction,
+                    ewoyaaProduction,
+                    clmProduction
                 });
 
                 // Calculate base profit per unit
                 const nalProfitPerUnit = spodumenePrice - nalCosts;
                 const moblanProfitPerUnit = spodumenePrice - moblanCosts;
+                const ewoyaaProfitPerUnit = spodumenePrice - ewoyaaCosts;
+                const clmProfitPerUnit = spodumenePrice - clmCosts;
 
                 // Calculate total annual profit before 'Times Revenue'
-                const totalAnnualProfit = (nalProduction * nalProfitPerUnit) + (moblanProduction * 0.60 * moblanProfitPerUnit); // Apply 60% to Moblan production
+                const totalAnnualProfit = (nalProduction * nalProfitPerUnit) + (moblanProduction * 0.60 * moblanProfitPerUnit) + (ewoyaaProduction * 0.50 * ewoyaaProfitPerUnit) + (clmProduction * clmProfitPerUnit);
 
                 // Define the 'Times Revenue' multiples
                 const timesRevenueMultiples = [7, 8, 10, 15, 20, 25, 30];
@@ -279,8 +321,8 @@
                         <div class="grid grid-cols-[max-content_max-content_1fr] gap-x-2 items-center w-1/2 pl-4">
                             <span class="text-right font-bold">NAL Costs</span><span class="text-center">:</span><span class="text-left">$${nalCosts.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                             <span class="text-right font-bold">Moblan Costs</span><span class="text-center">:</span><span class="text-left">$${moblanCosts.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                            <span class="text-right font-bold">NAL Production</span><span class="text-center">:</span><span class="text-left">${nalProduction.toLocaleString()}</span>
-                            <span class="text-right font-bold">Moblan Production</span><span class="text-center">:</span><span class="text-left">${moblanProduction.toLocaleString()}</span>
+                            <span class="text-right font-bold">Ewoyaa Costs</span><span class="text-center">:</span><span class="text-left">$${ewoyaaCosts.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                            <span class="text-right font-bold">CLM Costs</span><span class="text-center">:</span><span class="text-left">$${clmCosts.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                         </div>
                     </div>
                 `;
@@ -294,18 +336,21 @@
             initializeInputField('numShares', '1');
             initializeInputField('sharesOnIssue', '168,241,667', true); // true for formatted
             initializeInputField('spodumenePrice', '1000');
-            initializeInputField('exchangeRate', '0.65'); // Updated default value to 0.65
+            initializeInputField('exchangeRate', '0.65');
             initializeInputField('nalCosts', '750');
             initializeInputField('moblanCosts', '550');
-            initializeInputField('nalProduction', '210,000', true); // true for formatted
-            initializeInputField('moblanProduction', '600,000', true); // true for formatted
+            initializeInputField('ewoyaaCosts', '600');
+            initializeInputField('clmCosts', '500');
+            initializeInputField('nalProduction', '210,000', true);
+            initializeInputField('moblanProduction', '600,000', true);
+            initializeInputField('ewoyaaProduction', '300,000', true);
+            initializeInputField('clmProduction', '250,000', true);
 
             // Attach click event to the new Calculate button
             $('#calculateButton').on('click', updateOutputs);
 
             // Attach updateOutputs to other inputs
-            // Note: setupFormattedInput already attaches 'input' listener for formatted fields
-            $('#numShares, #spodumenePrice, #exchangeRate, #nalCosts, #moblanCosts').on('input', updateOutputs);
+            $('#numShares, #spodumenePrice, #exchangeRate, #nalCosts, #moblanCosts, #ewoyaaCosts, #clmCosts').on('input', updateOutputs);
 
 
             // Initial call to update outputs when the page loads, after inputs are initialized
