@@ -4,47 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Calculator</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            margin: 0;
-            background-color: #e0f2fe;
-        }
-        /* Hide up and down buttons for number inputs in some browsers */
-        input[type="number"]::-webkit-outer-spin-button,
-        input[type="number"]::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        input[type="number"] {
-            -moz-appearance: textfield;
+            margin: 0; /* Ensure no default body margin */
+            background-color: #e0f2fe; /* Light blue background for a fresh feel */
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
     <div class="flex flex-grow p-4">
         <div class="flex flex-grow bg-white rounded-xl shadow-2xl overflow-hidden">
-            <!-- Left Section: Inputs (20%) -->
             <div class="w-1/5 bg-gradient-to-br from-blue-500 to-blue-700 p-8 flex flex-col space-y-1 text-white shadow-lg">
-                <!-- # Shares -->
                 <div class="flex flex-col">
                     <label for="numShares" class="text-sm font-medium mb-0.5 opacity-90"># Shares</label>
                     <input type="number" id="numShares" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="1">
                 </div>
 
-                <!-- SOI -->
                 <div class="flex flex-col">
                     <label for="sharesOnIssue" class="text-sm font-medium mb-0.5 opacity-90">SOI</label>
                     <input type="text" id="sharesOnIssue" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="168,241,667">
                 </div>
 
-                <!-- Spodumene Price -->
                 <div class="flex flex-col">
                     <label for="spodumenePrice" class="text-sm font-medium mb-0.5 opacity-90">Spodumene Price</label>
                     <div class="flex items-center">
@@ -53,95 +37,76 @@
                     </div>
                 </div>
 
-                <!-- Exchange Rate -->
                 <div class="flex flex-col">
                     <label for="exchangeRate" class="text-sm font-medium mb-0.5 opacity-90">Exch Rate</label>
                     <input type="number" id="exchangeRate" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="0.65">
                 </div>
 
-                <!-- Costs Header -->
                 <h3 class="text-xl font-bold mt-6 mb-2 border-b border-blue-400 pb-2">Costs</h3>
-                <!-- Costs Grid -->
                 <div class="grid grid-cols-2 gap-4">
-                    <!-- NAL Costs -->
                     <div class="flex flex-col">
-                        <label for="nalCosts" class="text-xs font-medium mb-0.5 opacity-90">NAL</label>
+                        <label for="nalCosts" class="text-sm font-medium mb-0.5 opacity-90">NAL</label>
                         <div class="flex items-center">
                             <span class="text-white text-xs mr-1">$</span>
-                            <input type="number" id="nalCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs w-full flex-grow" value="750">
+                            <input type="number" id="nalCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="750">
                         </div>
                     </div>
-                    <!-- Moblan Costs -->
                     <div class="flex flex-col">
-                        <label for="moblanCosts" class="text-xs font-medium mb-0.5 opacity-90">Moblan</label>
+                        <label for="moblanCosts" class="text-sm font-medium mb-0.5 opacity-90">Moblan</label>
                         <div class="flex items-center">
                             <span class="text-white text-xs mr-1">$</span>
-                            <input type="number" id="moblanCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs w-full flex-grow" value="550">
+                            <input type="number" id="moblanCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="550">
                         </div>
                     </div>
-                    <!-- Ewoyaa Costs -->
                     <div class="flex flex-col">
-                        <label for="ewoyaaCosts" class="text-xs font-medium mb-0.5 opacity-90">Ewoyaa</label>
+                        <label for="ewoyaaCosts" class="text-sm font-medium mb-0.5 opacity-90">Ewoyaa</label>
                         <div class="flex items-center">
                             <span class="text-white text-xs mr-1">$</span>
-                            <input type="number" id="ewoyaaCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs w-full flex-grow" value="600">
+                            <input type="number" id="ewoyaaCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="600">
                         </div>
                     </div>
-                    <!-- CLM Costs -->
                     <div class="flex flex-col">
-                        <label for="clmCosts" class="text-xs font-medium mb-0.5 opacity-90">CLM</label>
+                        <label for="clmCosts" class="text-sm font-medium mb-0.5 opacity-90">CLM</label>
                         <div class="flex items-center">
                             <span class="text-white text-xs mr-1">$</span>
-                            <input type="number" id="clmCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs w-full flex-grow" value="500">
+                            <input type="number" id="clmCosts" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="500">
                         </div>
                     </div>
                 </div>
 
-                <!-- Production Header -->
                 <h3 class="text-xl font-bold mt-6 mb-2 border-b border-blue-400 pb-2">Production</h3>
-                <!-- Production Grid -->
                 <div class="grid grid-cols-2 gap-4">
-                    <!-- NAL Production -->
                     <div class="flex flex-col">
-                        <label for="nalProduction" class="text-xs font-medium mb-0.5 opacity-90">NAL</label>
-                        <input type="text" id="nalProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs w-full flex-grow" value="210,000">
+                        <label for="nalProduction" class="text-sm font-medium mb-0.5 opacity-90">NAL</label>
+                        <input type="text" id="nalProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="210,000">
                     </div>
-                    <!-- Moblan Production -->
                     <div class="flex flex-col">
-                        <label for="moblanProduction" class="text-xs font-medium mb-0.5 opacity-90">Moblan</label>
-                        <input type="text" id="moblanProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs w-full flex-grow" value="600,000">
+                        <label for="moblanProduction" class="text-sm font-medium mb-0.5 opacity-90">Moblan</label>
+                        <input type="text" id="moblanProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="600,000">
                     </div>
-                    <!-- Ewoyaa Production -->
                     <div class="flex flex-col">
-                        <label for="ewoyaaProduction" class="text-xs font-medium mb-0.5 opacity-90">Ewoyaa</label>
-                        <input type="text" id="ewoyaaProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs w-full flex-grow" value="300,000">
+                        <label for="ewoyaaProduction" class="text-sm font-medium mb-0.5 opacity-90">Ewoyaa</label>
+                        <input type="text" id="ewoyaaProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="300,000">
                     </div>
-                    <!-- CLM Production -->
                     <div class="flex flex-col">
-                        <label for="clmProduction" class="text-xs font-medium mb-0.5 opacity-90">CLM</label>
-                        <input type="text" id="clmProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs w-full flex-grow" value="250,000">
+                        <label for="clmProduction" class="text-sm font-medium mb-0.5 opacity-90">CLM</label>
+                        <input type="text" id="clmProduction" class="py-px px-3 bg-blue-800 bg-opacity-30 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 placeholder-blue-200 text-white transition duration-200 ease-in-out text-xs" value="250,000">
                     </div>
                 </div>
 
-                <!-- Calculate Button -->
                 <button id="calculateButton" class="mt-8 px-6 py-2 bg-blue-200 text-blue-800 font-bold rounded-lg shadow-md hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:ring-opacity-75 transition duration-200 ease-in-out">
                     Calculate
                 </button>
             </div>
 
-            <!-- Right Section: Outputs (80%) -->
             <div class="w-4/5 flex flex-col p-8 space-y-6 bg-gray-50">
-                <!-- Top Output Area (30%) -->
                 <div class="h-[30%] bg-white p-6 border border-gray-200 rounded-xl shadow-lg flex flex-col">
                     <div id="output1Content" class="mt-2 text-gray-700 text-sm flex-grow overflow-auto">
-                        <!-- Content will be dynamically added here -->
-                    </div>
+                        </div>
                 </div>
 
-                <!-- Bottom Output Area (70%) -->
                 <div class="h-[70%] bg-white p-6 border border-gray-200 rounded-xl shadow-lg flex flex-col">
                     <div id="output2Content" class="mt-2 text-gray-700 text-lg flex-grow overflow-auto">
-                        <!-- Table structure for outputs -->
                         <table class="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden text-sm">
                             <thead class="bg-blue-600 text-white">
                                 <tr>
@@ -154,8 +119,7 @@
                                 </tr>
                             </thead>
                             <tbody id="outputTableBody">
-                                <!-- Table rows will be dynamically inserted here by JavaScript -->
-                            </tbody>
+                                </tbody>
                         </table>
                     </div>
                 </div>
@@ -192,9 +156,67 @@
                 return number.toLocaleString();
             }
 
-            // Function to parse a comma-formatted string to a number
+            // *** NEW, FIXED FUNCTION ***
+            // Function to parse a comma-formatted string (US or EU) to a number
             function parseNumberFromFormattedString(str) {
-                return parseFloat(str.replace(/,/g, '')) || 0;
+                if (typeof str !== 'string' || !str) {
+                    return parseFloat(str) || 0;
+                }
+
+                let s = String(str).trim();
+                const lastComma = s.lastIndexOf(',');
+                const lastPeriod = s.lastIndexOf('.');
+                const hasComma = lastComma > -1;
+                const hasPeriod = lastPeriod > -1;
+
+                // Case 1: Both separators exist. The last one wins as the decimal.
+                if (hasComma && hasPeriod) {
+                    if (lastComma > lastPeriod) {
+                        // EU style: "1.234,56"
+                        s = s.replace(/\./g, '').replace(',', '.');
+                    } else {
+                        // US style: "1,234.56"
+                        s = s.replace(/,/g, '');
+                    }
+                }
+                // Case 2: Only commas exist
+                else if (hasComma && !hasPeriod) {
+                    // "1,23" (decimal) or "1,234" (thousand) or "1,234,567" (thousands)
+                    if (s.split(',').length > 2) {
+                        // "1,234,567" -> multiple commas must be thousands
+                        s = s.replace(/,/g, '');
+                    } else {
+                        // Only one comma: "1,23" or "1,234"
+                        const decimalPart = s.substring(lastComma + 1);
+                        if (decimalPart.length === 3) {
+                            // "1,234" -> assume thousand
+                            s = s.replace(',', '');
+                        } else {
+                            // "1,23" -> assume decimal
+                            s = s.replace(',', '.');
+                        }
+                    }
+                }
+                // Case 3: Only periods exist
+                else if (hasPeriod && !hasComma) {
+                    // "1.23" (decimal) or "1.234" (thousand) or "1.234.567" (thousands)
+                    if (s.split('.').length > 2) {
+                        // "1.234.567" -> multiple periods must be thousands
+                        s = s.replace(/\./g, '');
+                    } else {
+                        // Only one period: "1.23" or "1.234"
+                        const decimalPart = s.substring(lastPeriod + 1);
+                        if (decimalPart.length === 3) {
+                            // "1.234" -> assume thousand
+                            s = s.replace('.', '');
+                        } else {
+                            // "1.23" -> assume decimal, do nothing
+                        }
+                    }
+                }
+                // Case 4: No separators - do nothing
+
+                return parseFloat(s) || 0;
             }
 
             // Apply formatting on load and handle input changes for specific fields
