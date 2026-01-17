@@ -548,6 +548,16 @@
             </div>
         </div>
     </div>
+    
+    <!-- Footer Disclaimer -->
+    <footer class="bg-[#0f172a] text-slate-400 py-6 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-xs leading-relaxed">
+                <strong>Disclaimer:</strong> The tools and information provided on this website are for estimation and informational purposes only. They do not constitute financial, investment, or trading advice. While every effort is made to ensure accuracy, the results generated are based on user inputs and assumptions that may not reflect actual market conditions or future performance. Users should conduct their own independent research and due diligence before making any financial decisions.
+            </p>
+            <p class="text-xs mt-2 text-slate-500">&copy; 2026 ELVR Valuation Suite. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         // --- NAVIGATION LOGIC ---
@@ -651,15 +661,12 @@
             // Apply formatting on load and handle input changes for specific fields
             function setupFormattedInput(id) {
                 const $input = $(`#${id}`);
-                // Set initial value formatted
                 $input.val(formatNumberWithCommas(parseNumberFromFormattedString($input.val())));
 
-                // When input is focused, remove commas for easier editing
                 $input.on('focus', function() {
                     $(this).val(parseNumberFromFormattedString($(this).val()));
                 });
 
-                // When input loses focus, re-add commas
                 $input.on('blur', function() {
                     $(this).val(formatNumberWithCommas(parseNumberFromFormattedString($(this).val())));
                 });
@@ -673,19 +680,16 @@
                 if (storedValue !== null) {
                     $input.val(storedValue);
                 } else {
-                    // If no cookie, use the default value from HTML or provided
                     $input.val(defaultValue);
                 }
 
-                // If it's a formatted input, apply formatting after setting value
                 if (isFormatted) {
-                    setupFormattedInput(id); // This will format the value correctly
+                    setupFormattedInput(id); 
                 }
             }
 
-            // Function to perform calculations and update outputs
+            // --- SHARE PRICE ESTIMATOR LOGIC ---
             function updateOutputs() {
-                // Get input values, converting formatted strings to numbers where necessary.
                 const numShares = parseFloat($('#numShares').val()) || 0;
                 const sharesOnIssue = parseNumberFromFormattedString($('#sharesOnIssue').val());
                 const spodumenePrice = parseFloat($('#spodumenePrice').val()) || 0;
@@ -699,7 +703,6 @@
                 const ewoyaaProduction = parseNumberFromFormattedString($('#ewoyaaProduction').val());
                 const clmProduction = parseNumberFromFormattedString($('#clmProduction').val());
 
-                // Store current input values in cookies
                 setCookie('numShares_cookie', $('#numShares').val(), 30);
                 setCookie('sharesOnIssue_cookie', $('#sharesOnIssue').val(), 30);
                 setCookie('spodumenePrice_cookie', $('#spodumenePrice').val(), 30);
@@ -713,48 +716,22 @@
                 setCookie('ewoyaaProduction_cookie', $('#ewoyaaProduction').val(), 30);
                 setCookie('clmProduction_cookie', $('#clmProduction').val(), 30);
 
-                console.log("Current Inputs:", {
-                    numShares,
-                    sharesOnIssue,
-                    spodumenePrice,
-                    exchangeRate,
-                    nalCosts,
-                    moblanCosts,
-                    ewoyaaCosts,
-                    clmCosts,
-                    nalProduction,
-                    moblanProduction,
-                    ewoyaaProduction,
-                    clmProduction
-                });
-
-                // Calculate base profit per unit
                 const nalProfitPerUnit = spodumenePrice - nalCosts;
                 const moblanProfitPerUnit = spodumenePrice - moblanCosts;
                 const ewoyaaProfitPerUnit = spodumenePrice - ewoyaaCosts;
                 const clmProfitPerUnit = spodumenePrice - clmCosts;
 
-                // Calculate total annual profit before 'Times Revenue'
+                // Moblan 60%, Ewoyaa 50% (50% Offtake), NAL/CLM 100%
                 const totalAnnualProfit = (nalProduction * nalProfitPerUnit) + (moblanProduction * 0.60 * moblanProfitPerUnit) + (ewoyaaProduction * 0.50 * ewoyaaProfitPerUnit) + (clmProduction * clmProfitPerUnit);
 
-                // Define the 'Times Revenue' multiples
                 const timesRevenueMultiples = [7, 8, 10, 15, 20, 25, 30];
-
                 let tableRowsHtml = '';
+                
                 timesRevenueMultiples.forEach(timesRevenueFactor => {
-                    // Calculate Market Cap
                     const marketCap = totalAnnualProfit * timesRevenueFactor;
-
-                    // Calculate Share Price USD
                     const sharePriceUSD = sharesOnIssue > 0 ? marketCap / sharesOnIssue : 0;
-
-                    // Calculate My Total US$
                     const myTotalUSD = sharePriceUSD * numShares;
-
-                    // Calculate In AUD
                     const inAUD = exchangeRate > 0 ? sharePriceUSD / exchangeRate : 0; 
-
-                    // Calculate My Total AUD
                     const myTotalAUD = exchangeRate > 0 ? myTotalUSD / exchangeRate : 0; 
 
                     tableRowsHtml += `
