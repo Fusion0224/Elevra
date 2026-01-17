@@ -99,18 +99,89 @@
         <!-- Hero / Intro -->
         <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8 text-center md:text-left relative overflow-hidden">
             <div class="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full -mr-10 -mt-10 z-0"></div>
-            <div class="relative z-10">
-                <h1 class="text-3xl font-extrabold text-slate-900 mb-4">Valuation & Scenario Modeling</h1>
-                <p class="text-slate-600 max-w-3xl text-lg leading-relaxed">
-                    This suite provides tools to estimate market capitalization, share price, and ore metrics across the ELVR portfolio based on variable commodity pricing and production outputs.
-                </p>
-                <div class="mt-6 flex gap-4 justify-center md:justify-start">
-                    <button onclick="switchPage('share-price')" class="px-6 py-3 bg-orange-600 text-white font-bold rounded-lg shadow-lg shadow-orange-200 hover:bg-orange-500 transition-all transform hover:-translate-y-0.5">
-                        Share Price Estimator &rarr;
-                    </button>
-                    <button onclick="switchPage('ore-calc')" class="px-6 py-3 bg-slate-700 text-white font-bold rounded-lg shadow-lg hover:bg-slate-600 transition-all transform hover:-translate-y-0.5">
-                        Ore Calculator &rarr;
-                    </button>
+            <div class="relative z-10 flex flex-col md:flex-row gap-6">
+                <div class="md:w-2/3">
+                    <h1 class="text-3xl font-extrabold text-slate-900 mb-4">Valuation & Scenario Modeling</h1>
+                    <p class="text-slate-600 max-w-3xl text-lg leading-relaxed mb-6">
+                        This suite provides tools to estimate market capitalization, share price, and ore metrics across the ELVR portfolio based on variable commodity pricing and production outputs.
+                    </p>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <button onclick="switchPage('share-price')" class="px-6 py-3 bg-orange-600 text-white font-bold rounded-lg shadow-lg shadow-orange-200 hover:bg-orange-500 transition-all transform hover:-translate-y-0.5">
+                            Share Price Estimator &rarr;
+                        </button>
+                        <button onclick="switchPage('ore-calc')" class="px-6 py-3 bg-slate-700 text-white font-bold rounded-lg shadow-lg hover:bg-slate-600 transition-all transform hover:-translate-y-0.5">
+                            Ore Calculator &rarr;
+                        </button>
+                    </div>
+                </div>
+                <!-- TradingView Widget Placeholder -->
+                <div class="md:w-1/3 bg-slate-50 rounded-xl border border-slate-200 p-1 flex items-center justify-center relative overflow-hidden h-64 md:h-auto">
+                     <div class="tradingview-widget-container w-full h-full">
+                      <div class="tradingview-widget-container__widget h-full w-full"></div>
+                      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                      {
+                      "interval": "1D",
+                      "width": "100%",
+                      "isTransparent": true,
+                      "height": "100%",
+                      "symbol": "ASX:ELV", 
+                      "showIntervalTabs": true,
+                      "displayMode": "single",
+                      "locale": "en",
+                      "colorTheme": "light"
+                    }
+                      </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Symbol Overview Widget Row -->
+        <div class="mb-8">
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 h-96 overflow-hidden">
+                <div class="tradingview-widget-container h-full w-full">
+                  <div class="tradingview-widget-container__widget h-full w-full"></div>
+                  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+                  {
+                  "symbols": [
+                    [
+                      "ASX:ELV|1D"
+                    ]
+                  ],
+                  "chartOnly": false,
+                  "width": "100%",
+                  "height": "100%",
+                  "locale": "en",
+                  "colorTheme": "light",
+                  "autosize": true,
+                  "showVolume": false,
+                  "showMA": false,
+                  "hideDateRanges": false,
+                  "hideMarketStatus": false,
+                  "hideSymbolLogo": true,
+                  "scalePosition": "right",
+                  "scaleMode": "Normal",
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+                  "fontSize": "10",
+                  "noTimeScale": false,
+                  "valuesTracking": "1",
+                  "changeMode": "price-and-percent",
+                  "chartType": "area",
+                  "maLineColor": "#2962FF",
+                  "maLineWidth": 1,
+                  "maLength": 9,
+                  "lineWidth": 2,
+                  "lineType": 0,
+                  "dateRanges": [
+                    "1d|1",
+                    "1m|30",
+                    "3m|60",
+                    "12m|1D",
+                    "60m|1W",
+                    "all|1M"
+                  ]
+                }
+                  </script>
                 </div>
             </div>
         </div>
@@ -580,12 +651,15 @@
             // Apply formatting on load and handle input changes for specific fields
             function setupFormattedInput(id) {
                 const $input = $(`#${id}`);
+                // Set initial value formatted
                 $input.val(formatNumberWithCommas(parseNumberFromFormattedString($input.val())));
 
+                // When input is focused, remove commas for easier editing
                 $input.on('focus', function() {
                     $(this).val(parseNumberFromFormattedString($(this).val()));
                 });
 
+                // When input loses focus, re-add commas
                 $input.on('blur', function() {
                     $(this).val(formatNumberWithCommas(parseNumberFromFormattedString($(this).val())));
                 });
@@ -599,16 +673,19 @@
                 if (storedValue !== null) {
                     $input.val(storedValue);
                 } else {
+                    // If no cookie, use the default value from HTML or provided
                     $input.val(defaultValue);
                 }
 
+                // If it's a formatted input, apply formatting after setting value
                 if (isFormatted) {
-                    setupFormattedInput(id); 
+                    setupFormattedInput(id); // This will format the value correctly
                 }
             }
 
-            // --- SHARE PRICE ESTIMATOR LOGIC ---
+            // Function to perform calculations and update outputs
             function updateOutputs() {
+                // Get input values, converting formatted strings to numbers where necessary.
                 const numShares = parseFloat($('#numShares').val()) || 0;
                 const sharesOnIssue = parseNumberFromFormattedString($('#sharesOnIssue').val());
                 const spodumenePrice = parseFloat($('#spodumenePrice').val()) || 0;
@@ -622,6 +699,7 @@
                 const ewoyaaProduction = parseNumberFromFormattedString($('#ewoyaaProduction').val());
                 const clmProduction = parseNumberFromFormattedString($('#clmProduction').val());
 
+                // Store current input values in cookies
                 setCookie('numShares_cookie', $('#numShares').val(), 30);
                 setCookie('sharesOnIssue_cookie', $('#sharesOnIssue').val(), 30);
                 setCookie('spodumenePrice_cookie', $('#spodumenePrice').val(), 30);
@@ -635,22 +713,48 @@
                 setCookie('ewoyaaProduction_cookie', $('#ewoyaaProduction').val(), 30);
                 setCookie('clmProduction_cookie', $('#clmProduction').val(), 30);
 
+                console.log("Current Inputs:", {
+                    numShares,
+                    sharesOnIssue,
+                    spodumenePrice,
+                    exchangeRate,
+                    nalCosts,
+                    moblanCosts,
+                    ewoyaaCosts,
+                    clmCosts,
+                    nalProduction,
+                    moblanProduction,
+                    ewoyaaProduction,
+                    clmProduction
+                });
+
+                // Calculate base profit per unit
                 const nalProfitPerUnit = spodumenePrice - nalCosts;
                 const moblanProfitPerUnit = spodumenePrice - moblanCosts;
                 const ewoyaaProfitPerUnit = spodumenePrice - ewoyaaCosts;
                 const clmProfitPerUnit = spodumenePrice - clmCosts;
 
-                // Moblan 60%, Ewoyaa 50% (50% Offtake), NAL/CLM 100%
+                // Calculate total annual profit before 'Times Revenue'
                 const totalAnnualProfit = (nalProduction * nalProfitPerUnit) + (moblanProduction * 0.60 * moblanProfitPerUnit) + (ewoyaaProduction * 0.50 * ewoyaaProfitPerUnit) + (clmProduction * clmProfitPerUnit);
 
+                // Define the 'Times Revenue' multiples
                 const timesRevenueMultiples = [7, 8, 10, 15, 20, 25, 30];
+
                 let tableRowsHtml = '';
-                
                 timesRevenueMultiples.forEach(timesRevenueFactor => {
+                    // Calculate Market Cap
                     const marketCap = totalAnnualProfit * timesRevenueFactor;
+
+                    // Calculate Share Price USD
                     const sharePriceUSD = sharesOnIssue > 0 ? marketCap / sharesOnIssue : 0;
+
+                    // Calculate My Total US$
                     const myTotalUSD = sharePriceUSD * numShares;
+
+                    // Calculate In AUD
                     const inAUD = exchangeRate > 0 ? sharePriceUSD / exchangeRate : 0; 
+
+                    // Calculate My Total AUD
                     const myTotalAUD = exchangeRate > 0 ? myTotalUSD / exchangeRate : 0; 
 
                     tableRowsHtml += `
