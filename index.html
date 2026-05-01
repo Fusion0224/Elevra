@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ELVR Valuation Suite</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
         body {
@@ -17,7 +14,6 @@
             background-color: #f8fafc; /* Slate-50 background */
         }
         
-        /* Hide HTML5 Up and Down arrows from input number */
         input[type=number]::-webkit-inner-spin-button, 
         input[type=number]::-webkit-outer-spin-button { 
             -webkit-appearance: none; 
@@ -28,7 +24,6 @@
             -moz-appearance: textfield;
         }
 
-        /* Page Toggle Utility */
         .page-section {
             display: none;
             animation: fadeIn 0.3s ease-in-out;
@@ -43,7 +38,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Orange Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -58,7 +52,6 @@
             background: #f97316; /* Orange-500 hover */
         }
 
-        /* Dropdown Menu Styles */
         .dropdown:hover .dropdown-menu {
             display: block;
         }
@@ -66,22 +59,17 @@
 </head>
 <body class="min-h-screen flex flex-col text-slate-800">
 
-    <!-- Navigation Menu -->
     <nav class="bg-[#0f172a] text-white shadow-lg sticky top-0 z-50 border-b border-orange-500/30">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex items-center justify-between h-14"> <!-- Reduced height from 16 to 14 -->
+            <div class="flex items-center justify-between h-14">
                 <div class="flex items-center gap-3 cursor-pointer" onclick="switchPage('home')">
-                    <!-- Icon -->
                     <div class="w-7 h-7 bg-orange-600 rounded flex items-center justify-center font-bold text-white shadow-lg shadow-orange-500/20 text-sm">E</div>
-                    <!-- Header Title -->
                     <span id="site-header-title" class="font-bold text-lg tracking-tight text-slate-100">ELVR Suite</span>
                 </div>
                 <div class="flex space-x-2">
                     <button onclick="switchPage('home')" id="btn-home" class="px-3 py-1.5 rounded-md text-xs font-medium bg-orange-600 text-white transition-all duration-200 shadow-md">Home</button>
-                    
                     <button onclick="switchPage('assets')" id="btn-assets" class="px-3 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200">Assets</button>
 
-                    <!-- Calculators Dropdown -->
                     <div class="relative dropdown">
                         <button id="btn-calculators" class="px-3 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200 flex items-center gap-1">
                             Calculators
@@ -97,9 +85,7 @@
         </div>
     </nav>
 
-    <!-- PAGE 1: HOME (Project Portfolio) -->
     <div id="page-home" class="page-section active flex-col p-6 max-w-7xl mx-auto w-full">
-        <!-- Hero / Intro -->
         <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8 text-center md:text-left relative overflow-hidden">
             <div class="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full -mr-10 -mt-10 z-0"></div>
             <div class="relative z-10 flex flex-col md:flex-row gap-6">
@@ -117,7 +103,6 @@
                         </button>
                     </div>
                 </div>
-                <!-- TradingView Technical Analysis Widget (Direct Embed) -->
                 <div class="md:w-1/3 bg-slate-50 rounded-xl border border-slate-200 p-1 flex items-center justify-center relative overflow-hidden h-64 md:h-auto">
                     <div class="tradingview-widget-container w-full h-full">
                       <div class="tradingview-widget-container__widget w-full h-full"></div>
@@ -139,336 +124,109 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Symbol Overview Widget & Lithium Price (Direct Embed) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <!-- Symbol Overview Widget -->
-            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 h-96 overflow-hidden">
-                <div class="tradingview-widget-container h-full w-full">
-                  <div class="tradingview-widget-container__widget h-full w-full"></div>
-                  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-                  {
-                  "symbols": [
-                    [
-                      "ASX:ELV|1D"
-                    ]
-                  ],
-                  "chartOnly": false,
-                  "width": "100%",
-                  "height": "100%",
-                  "locale": "en",
-                  "colorTheme": "light",
-                  "autosize": true,
-                  "showVolume": false,
-                  "showMA": false,
-                  "hideDateRanges": false,
-                  "hideMarketStatus": false,
-                  "hideSymbolLogo": true,
-                  "scalePosition": "right",
-                  "scaleMode": "Normal",
-                  "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-                  "fontSize": "10",
-                  "noTimeScale": false,
-                  "valuesTracking": "1",
-                  "changeMode": "price-and-percent",
-                  "chartType": "area",
-                  "maLineColor": "#2962FF",
-                  "maLineWidth": 1,
-                  "maLength": 9,
-                  "lineWidth": 2,
-                  "lineType": 0,
-                  "dateRanges": [
-                    "1d|1",
-                    "1m|30",
-                    "3m|60",
-                    "12m|1D",
-                    "60m|1W",
-                    "all|1M"
-                  ]
-                }
-                  </script>
-                </div>
-            </div>
-            
-            <!-- Lithium Price Chart (Metal.com Iframe) -->
-            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 h-96 overflow-hidden relative">
-                <div class="absolute top-4 left-4 z-20 flex gap-2">
-                    <button onclick="document.getElementById('metal-iframe').src = document.getElementById('metal-iframe').src" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2 py-1 rounded border border-slate-300 font-semibold transition-colors shadow-sm">
-                        Refresh Price
-                    </button>
-                </div>
-                <!-- Cropped Iframe implementation - Adjusted Positioning (-340px to -140px) -->
-                <iframe id="metal-iframe" src="https://www.metal.com/Lithium/lc2605?type=1%20Minute" class="absolute -top-[140px] left-0 w-full h-[800px] border-0" scrolling="no" title="Lithium Price Chart"></iframe>
-            </div>
-        </div>
     </div>
 
-    <!-- PAGE 4: ASSETS (Project Portfolio) -->
     <div id="page-assets" class="page-section flex-col p-6 max-w-7xl mx-auto w-full">
-        <!-- Portfolio Cards -->
         <h2 class="text-xl font-bold text-slate-800 mb-4 px-1 border-l-4 border-orange-500 pl-3">Asset Portfolio Overview</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- NAL -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-teal-200 hover:shadow-md transition-all relative overflow-hidden group flex flex-col">
-                <div class="absolute top-0 right-0 w-16 h-16 bg-teal-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-                <div class="mb-4 relative z-10">
-                    <h3 class="text-xl font-bold text-slate-800">NAL</h3>
-                    <p class="text-xs text-slate-500 font-semibold uppercase tracking-wide">Quebec, Canada</p>
-                </div>
-                
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-teal-50 rounded-bl-full -mr-8 -mt-8"></div>
+                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">NAL</h3><p class="text-xs text-slate-500 uppercase tracking-wide">Quebec, Canada</p></div>
                 <div class="space-y-3 mb-6 relative z-10 flex-grow">
-                    <div>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p>
-                        <p class="text-sm font-semibold text-slate-700">95.0 Mt @ 1.15%</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p>
-                        <p class="text-sm font-semibold text-slate-700">49.0 Mt @ 1.11%</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">NPV (8%)</p>
-                        <p class="text-sm font-semibold text-slate-700">A$2.2B (Pre-tax)</p>
-                    </div>
+                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p><p class="text-sm font-semibold text-slate-700">95.0 Mt @ 1.15%</p></div>
+                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p><p class="text-sm font-semibold text-slate-700">49.0 Mt @ 1.11%</p></div>
                 </div>
-
-                <div class="flex items-center justify-between mt-auto relative z-10 pt-4 border-t border-slate-100">
-                    <span class="px-2 py-1 bg-teal-100 text-teal-800 text-xs font-bold rounded">100% Owned</span>
-                    <a href="https://api.investi.com.au/api/announcements/sya/b5d0fbd0-f36.pdf" target="_blank" class="text-xs text-teal-600 hover:text-teal-800 font-semibold flex items-center">
-                        View DFS <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
-                </div>
+                <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100"><span class="px-2 py-1 bg-teal-100 text-teal-800 text-xs font-bold rounded">100% Owned</span></div>
             </div>
-
-            <!-- Moblan -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-blue-200 hover:shadow-md transition-all relative overflow-hidden group flex flex-col">
-                <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-                <div class="mb-4 relative z-10">
-                    <h3 class="text-xl font-bold text-slate-800">Moblan</h3>
-                    <p class="text-xs text-slate-500 font-semibold uppercase tracking-wide">Quebec, Canada</p>
-                </div>
-
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 rounded-bl-full -mr-8 -mt-8"></div>
+                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">Moblan</h3><p class="text-xs text-slate-500 uppercase tracking-wide">Quebec, Canada</p></div>
                 <div class="space-y-3 mb-6 relative z-10 flex-grow">
-                    <div>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p>
-                        <p class="text-sm font-semibold text-slate-700">121.0 Mt @ 1.19%</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p>
-                        <p class="text-sm font-semibold text-slate-700">48.1 Mt @ 1.31%</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">NPV (8%)</p>
-                        <p class="text-sm font-semibold text-slate-700">C$1.4B+</p>
-                    </div>
+                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p><p class="text-sm font-semibold text-slate-700">121.0 Mt @ 1.19%</p></div>
+                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p><p class="text-sm font-semibold text-slate-700">48.1 Mt @ 1.31%</p></div>
                 </div>
-
-                <div class="flex items-center justify-between mt-auto relative z-10 pt-4 border-t border-slate-100">
-                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded">60% Owned</span>
-                    <a href="https://api.investi.com.au/api/announcements/sya/2c650dc0-b4b.pdf" target="_blank" class="text-xs text-blue-600 hover:text-blue-800 font-semibold flex items-center">
-                        View DFS <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
-                </div>
+                <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100"><span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded">60% Owned</span></div>
             </div>
-
-            <!-- Ewoyaa -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-orange-200 hover:shadow-md transition-all relative overflow-hidden group flex flex-col">
-                <div class="absolute top-0 right-0 w-16 h-16 bg-orange-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-                <div class="mb-4 relative z-10">
-                    <h3 class="text-xl font-bold text-slate-800">Ewoyaa</h3>
-                    <p class="text-xs text-slate-500 font-semibold uppercase tracking-wide">Ghana</p>
-                </div>
-
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-orange-50 rounded-bl-full -mr-8 -mt-8"></div>
+                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">Ewoyaa</h3><p class="text-xs text-slate-500 uppercase tracking-wide">Ghana</p></div>
                 <div class="space-y-3 mb-6 relative z-10 flex-grow">
-                    <div>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p>
-                        <p class="text-sm font-semibold text-slate-700">35.3 Mt @ 1.25%</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p>
-                        <p class="text-sm font-semibold text-slate-700">25.6 Mt @ 1.22%</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">NPV (8%)</p>
-                        <p class="text-sm font-semibold text-slate-700">US$1.5B (Post-tax)</p>
-                    </div>
+                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p><p class="text-sm font-semibold text-slate-700">35.3 Mt @ 1.25%</p></div>
+                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p><p class="text-sm font-semibold text-slate-700">25.6 Mt @ 1.22%</p></div>
                 </div>
-
-                <div class="flex items-center justify-between mt-auto relative z-10 pt-4 border-t border-slate-100">
-                    <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-bold rounded">22.5% Owned</span>
-                    <a href="https://www.atlanticlithium.com.au/projects/ewoyaa-lithium-project" target="_blank" class="text-xs text-orange-600 hover:text-orange-800 font-semibold flex items-center">
-                        View DFS <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
-                </div>
+                <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100"><span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-bold rounded">22.5% Owned</span></div>
             </div>
-
-            <!-- Carolina Lithium -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-purple-200 hover:shadow-md transition-all relative overflow-hidden group flex flex-col">
-                <div class="absolute top-0 right-0 w-16 h-16 bg-purple-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-                <div class="mb-4 relative z-10">
-                    <h3 class="text-xl font-bold text-slate-800">Carolina Lithium</h3>
-                    <p class="text-xs text-slate-500 font-semibold uppercase tracking-wide">North Carolina, USA</p>
-                </div>
-
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-purple-50 rounded-bl-full -mr-8 -mt-8"></div>
+                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">Carolina Lithium</h3><p class="text-xs text-slate-500 uppercase tracking-wide">USA</p></div>
                 <div class="space-y-3 mb-6 relative z-10 flex-grow">
-                    <div>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p>
-                        <p class="text-sm font-semibold text-slate-700">44.2 Mt @ 1.08%</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p>
-                        <p class="text-sm font-semibold text-slate-700">18.3 Mt @ 1.10%</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">NPV (8%)</p>
-                        <p class="text-sm font-semibold text-slate-700">US$2.0B (Post-tax)</p>
-                    </div>
+                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p><p class="text-sm font-semibold text-slate-700">44.2 Mt @ 1.08%</p></div>
+                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p><p class="text-sm font-semibold text-slate-700">18.3 Mt @ 1.10%</p></div>
                 </div>
-
-                <div class="flex items-center justify-between mt-auto relative z-10 pt-4 border-t border-slate-100">
-                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded">100% Owned</span>
-                    <a href="https://piedmontlithium.com/projects/carolina-lithium/" target="_blank" class="text-xs text-purple-600 hover:text-purple-800 font-semibold flex items-center">
-                        View DFS <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
-                </div>
+                <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100"><span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded">100% Owned</span></div>
             </div>
         </div>
     </div>
 
-    <!-- PAGE 2: SHARE PRICE ESTIMATOR -->
     <div id="page-share-price" class="page-section flex-grow p-4">
-        <!-- Changed to h-[calc(100vh-6rem)] to fit exactly below nav -->
         <div class="flex flex-grow bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden w-full h-[calc(100vh-6rem)]">
             
-            <!-- Left Section: Inputs (20%) -->
             <div class="w-1/5 bg-[#0f172a] p-3 flex flex-col space-y-2 text-white shadow-lg overflow-y-auto border-r border-slate-800">
                 <div class="pb-1 border-b border-slate-700 mb-0">
                     <h3 class="text-sm font-bold text-orange-500">Estimator Inputs</h3>
                 </div>
                 
-                <!-- # Shares -->
                 <div class="flex flex-col group">
-                    <label for="numShares" class="text-[10px] font-semibold mb-0.5 text-slate-400 group-hover:text-orange-400 transition-colors"># Shares</label>
-                    <input type="number" id="numShares" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent placeholder-slate-500 text-white transition duration-200 ease-in-out text-xs shadow-inner" value="1">
+                    <label for="numShares" class="text-[10px] font-semibold mb-0.5 text-slate-400"># Shares</label>
+                    <input type="number" id="numShares" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs shadow-inner" value="1">
                 </div>
 
-                <!-- SOI -->
                 <div class="flex flex-col group">
-                    <label for="sharesOnIssue" class="text-[10px] font-semibold mb-0.5 text-slate-400 group-hover:text-orange-400 transition-colors">SOI</label>
-                    <input type="text" id="sharesOnIssue" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent placeholder-slate-500 text-white transition duration-200 ease-in-out text-xs shadow-inner" value="168,241,667">
+                    <label for="sharesOnIssue" class="text-[10px] font-semibold mb-0.5 text-slate-400">SOI</label>
+                    <input type="text" id="sharesOnIssue" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs shadow-inner" value="168,241,667">
                 </div>
 
-                <!-- Spodumene Price -->
                 <div class="flex flex-col group">
-                    <label for="spodumenePrice" class="text-[10px] font-semibold mb-0.5 text-slate-400 group-hover:text-orange-400 transition-colors">Spodumene Price</label>
+                    <label for="spodumenePrice" class="text-[10px] font-semibold mb-0.5 text-slate-400">Spodumene Price</label>
                     <div class="flex items-center relative">
                         <span class="absolute left-2 text-slate-400 text-[10px]">$</span>
-                        <input type="number" id="spodumenePrice" class="py-1 pl-4 pr-2 bg-slate-800 border border-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent placeholder-slate-500 text-white transition duration-200 ease-in-out text-xs w-full shadow-inner" value="1000">
+                        <input type="number" id="spodumenePrice" class="py-1 pl-4 pr-2 bg-slate-800 border border-slate-600 rounded text-white text-xs w-full shadow-inner" value="1000">
                     </div>
                 </div>
 
-                <!-- Exchange Rate -->
                 <div class="flex flex-col group">
-                    <label for="exchangeRate" class="text-[10px] font-semibold mb-0.5 text-slate-400 group-hover:text-orange-400 transition-colors">Exch Rate</label>
-                    <input type="number" id="exchangeRate" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent placeholder-slate-500 text-white transition duration-200 ease-in-out text-xs shadow-inner" value="0.65">
+                    <label for="productGrade" class="text-[10px] font-semibold mb-0.5 text-slate-400">% Grade</label>
+                    <input type="number" id="productGrade" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs shadow-inner" value="6.0" step="0.1">
                 </div>
 
-                <!-- Costs Header -->
-                <div class="pt-1 pb-1 border-b border-slate-700">
-                    <h3 class="text-[10px] font-bold text-orange-500 uppercase tracking-wider">Costs</h3>
+                <div class="flex flex-col group">
+                    <label for="exchangeRate" class="text-[10px] font-semibold mb-0.5 text-slate-400">Exch Rate</label>
+                    <input type="number" id="exchangeRate" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs shadow-inner" value="0.65">
                 </div>
-                
-                <!-- Costs Grid -->
+
+                <div class="pt-1 pb-1 border-b border-slate-700"><h3 class="text-[10px] font-bold text-orange-500 uppercase">Costs</h3></div>
                 <div class="grid grid-cols-2 gap-2">
-                    <!-- NAL Costs -->
-                    <div class="flex flex-col">
-                        <label for="nalCosts" class="text-[9px] font-semibold mb-0.5 text-slate-400 uppercase">NAL</label>
-                        <div class="flex items-center">
-                            <span class="text-slate-500 text-[9px] mr-0.5">$</span>
-                            <input type="number" id="nalCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-orange-500 text-white text-[10px] w-full flex-grow" value="750">
-                        </div>
-                    </div>
-                    <!-- Moblan Costs -->
-                    <div class="flex flex-col">
-                        <label for="moblanCosts" class="text-[9px] font-semibold mb-0.5 text-slate-400 uppercase">Moblan</label>
-                        <div class="flex items-center">
-                            <span class="text-slate-500 text-[9px] mr-0.5">$</span>
-                            <input type="number" id="moblanCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-orange-500 text-white text-[10px] w-full flex-grow" value="550">
-                        </div>
-                    </div>
-                    <!-- Ewoyaa Costs -->
-                    <div class="flex flex-col">
-                        <label for="ewoyaaCosts" class="text-[9px] font-semibold mb-0.5 text-slate-400 uppercase">Ewoyaa</label>
-                        <div class="flex items-center">
-                            <span class="text-slate-500 text-[9px] mr-0.5">$</span>
-                            <input type="number" id="ewoyaaCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-orange-500 text-white text-[10px] w-full flex-grow" value="600">
-                        </div>
-                    </div>
-                    <!-- CLM Costs -->
-                    <div class="flex flex-col">
-                        <label for="clmCosts" class="text-[9px] font-semibold mb-0.5 text-slate-400 uppercase">CLM</label>
-                        <div class="flex items-center">
-                            <span class="text-slate-500 text-[9px] mr-0.5">$</span>
-                            <input type="number" id="clmCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-orange-500 text-white text-[10px] w-full flex-grow" value="500">
-                        </div>
-                    </div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">NAL</label><input type="number" id="nalCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="750"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">MOBLAN</label><input type="number" id="moblanCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="550"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">EWOYAA</label><input type="number" id="ewoyaaCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="600"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">CLM</label><input type="number" id="clmCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="500"></div>
                 </div>
 
-                <!-- Production Header -->
-                <div class="pt-1 pb-1 border-b border-slate-700">
-                    <h3 class="text-[10px] font-bold text-orange-500 uppercase tracking-wider">Production</h3>
-                </div>
-
-                <!-- Production Grid -->
+                <div class="pt-1 pb-1 border-b border-slate-700"><h3 class="text-[10px] font-bold text-orange-500 uppercase">Production</h3></div>
                 <div class="grid grid-cols-2 gap-2">
-                    <!-- NAL Production -->
-                    <div class="flex flex-col">
-                        <label for="nalProduction" class="text-[9px] font-semibold mb-0.5 text-slate-400 uppercase">NAL</label>
-                        <input type="text" id="nalProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-orange-500 text-white text-[10px] w-full flex-grow" value="210,000">
-                    </div>
-                    <!-- Moblan Production -->
-                    <div class="flex flex-col">
-                        <label for="moblanProduction" class="text-[9px] font-semibold mb-0.5 text-slate-400 uppercase">Moblan</label>
-                        <input type="text" id="moblanProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-orange-500 text-white text-[10px] w-full flex-grow" value="600,000">
-                    </div>
-                    <!-- Ewoyaa Production -->
-                    <div class="flex flex-col">
-                        <label for="ewoyaaProduction" class="text-[9px] font-semibold mb-0.5 text-slate-400 uppercase">Ewoyaa</label>
-                        <input type="text" id="ewoyaaProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-orange-500 text-white text-[10px] w-full flex-grow" value="300,000">
-                    </div>
-                    <!-- CLM Production -->
-                    <div class="flex flex-col">
-                        <label for="clmProduction" class="text-[9px] font-semibold mb-0.5 text-slate-400 uppercase">CLM</label>
-                        <input type="text" id="clmProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded focus:outline-none focus:ring-1 focus:ring-orange-500 text-white text-[10px] w-full flex-grow" value="250,000">
-                    </div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">NAL</label><input type="text" id="nalProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="210,000"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">MOBLAN</label><input type="text" id="moblanProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="600,000"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">EWOYAA</label><input type="text" id="ewoyaaProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="300,000"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">CLM</label><input type="text" id="clmProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="250,000"></div>
                 </div>
 
-                <!-- Calculate Button -->
-                <button id="calculateButton" class="mt-2 px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded shadow-lg transform hover:-translate-y-0.5 transition duration-200 ease-in-out w-full ring-1 ring-orange-600 text-xs">
-                    Calculate
-                </button>
+                <button id="calculateButton" class="mt-2 px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded shadow-lg transition duration-200 text-xs">Calculate</button>
             </div>
 
-            <!-- Right Section: Outputs (80%) -->
             <div class="w-4/5 flex flex-col p-4 space-y-4 bg-slate-50 h-full overflow-hidden">
-                <!-- Top Output Area - Auto height based on content -->
-                <div class="flex-none bg-white p-4 border border-slate-200 rounded-xl shadow-sm flex flex-col hidden"> <!-- Hidden as per request -->
-                    <div class="border-b border-slate-100 pb-1 mb-1 flex justify-between items-center">
-                        <h2 class="text-sm font-bold text-slate-800">Snapshot</h2>
-                        <span class="text-[10px] text-orange-600 bg-orange-50 px-2 py-0.5 rounded font-semibold">Live Estimate</span>
-                    </div>
-                    <!-- Removed mt-2 and flex-grow to keep it compact -->
-                    <div id="output1Content" class="text-slate-600 text-xs">
-                        <!-- Content will be dynamically added here -->
-                    </div>
-                </div>
-
-                <!-- Bottom Output Area - Flex grow to fill remaining height -->
                 <div class="h-full bg-white p-4 border border-slate-200 rounded-xl shadow-sm flex flex-col overflow-hidden">
-                    <div class="border-b border-slate-100 pb-2 mb-2 flex justify-between items-center">
-                        <h2 class="text-sm font-bold text-slate-800">Detailed Forecast Table</h2>
-                    </div>
-                    <div id="output2Content" class="text-gray-700 text-sm flex-grow overflow-auto">
-                        <!-- Table structure for outputs -->
+                    <div class="border-b border-slate-100 pb-2 mb-2"><h2 class="text-sm font-bold text-slate-800">Detailed Forecast Table</h2></div>
+                    <div class="text-gray-700 text-sm flex-grow overflow-auto">
                         <table class="min-w-full bg-white text-xs">
                             <thead class="bg-slate-100 text-slate-600 uppercase text-[10px] font-bold tracking-wider sticky top-0">
                                 <tr>
@@ -476,13 +234,11 @@
                                     <th class="py-2 px-3 text-left">Market Cap</th>
                                     <th class="py-2 px-3 text-left text-orange-600">Share Price USD</th>
                                     <th class="py-2 px-3 text-left">My Total US$</th>
-                                    <th class="py-2 px-3 text-left">In AUD</th>
+                                    <th class="py-2 px-3 text-left">IN AUD</th>
                                     <th class="py-2 px-3 text-left rounded-r-lg">My Total AUD</th>
                                 </tr>
                             </thead>
-                            <tbody id="outputTableBody" class="divide-y divide-slate-100">
-                                <!-- Table rows will be dynamically inserted here by JavaScript -->
-                            </tbody>
+                            <tbody id="outputTableBody" class="divide-y divide-slate-100"></tbody>
                         </table>
                     </div>
                 </div>
@@ -490,120 +246,17 @@
         </div>
     </div>
 
-    <!-- PAGE 3: ORE CALCULATOR (NEW) -->
-    <div id="page-ore-calc" class="page-section flex-grow p-4">
-        <div class="flex flex-grow bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden w-full h-full min-h-[80vh]">
-            <!-- Left Section: Ore Inputs (20%) -->
-            <div class="w-1/5 bg-[#0f172a] p-6 flex flex-col space-y-4 text-white shadow-lg overflow-y-auto border-r border-slate-800">
-                <div class="pb-2 border-b border-slate-700 mb-2">
-                    <h3 class="text-lg font-bold text-orange-500">Ore Inputs</h3>
-                </div>
-                
-                <!-- Desired Spod % (formerly Conc Grade) -->
-                <div class="flex flex-col group">
-                    <label for="desiredSpod" class="text-xs font-semibold mb-1 text-slate-400 group-hover:text-orange-400 transition-colors">Desired Spod %</label>
-                    <input type="number" id="desiredSpod" class="py-1.5 px-3 bg-slate-800 border border-slate-600 rounded-lg focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent placeholder-slate-500 text-white transition duration-200 ease-in-out text-sm shadow-inner" value="5.3">
-                </div>
-
-                <!-- Ore Grade (after pre-sort) (formerly Head Grade) -->
-                <div class="flex flex-col group">
-                    <label for="oreGrade" class="text-xs font-semibold mb-1 text-slate-400 group-hover:text-orange-400 transition-colors">Ore Grade (after pre-sort)</label>
-                    <input type="number" id="oreGrade" class="py-1.5 px-3 bg-slate-800 border border-slate-600 rounded-lg focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent placeholder-slate-500 text-white transition duration-200 ease-in-out text-sm shadow-inner" value="1.17">
-                </div>
-
-                <!-- Ore (Tpd) -->
-                <div class="flex flex-col group">
-                    <label for="oreTpd" class="text-xs font-semibold mb-1 text-slate-400 group-hover:text-orange-400 transition-colors">Ore (Tpd)</label>
-                    <input type="text" id="oreTpd" class="py-1.5 px-3 bg-slate-800 border border-slate-600 rounded-lg focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent placeholder-slate-500 text-white transition duration-200 ease-in-out text-sm shadow-inner" value="4,500" title="Tonnes Per Day">
-                </div>
-
-                <!-- Days -->
-                <div class="flex flex-col group">
-                    <label for="daysOperational" class="text-xs font-semibold mb-1 text-slate-400 group-hover:text-orange-400 transition-colors">Days</label>
-                    <input type="number" id="daysOperational" class="py-1.5 px-3 bg-slate-800 border border-slate-600 rounded-lg focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent placeholder-slate-500 text-white transition duration-200 ease-in-out text-sm shadow-inner" value="365">
-                </div>
-
-                <!-- Recovery % -->
-                <div class="flex flex-col group">
-                    <label for="recoveryRate" class="text-xs font-semibold mb-1 text-slate-400 group-hover:text-orange-400 transition-colors">Recovery %</label>
-                    <input type="number" id="recoveryRate" class="py-1.5 px-3 bg-slate-800 border border-slate-600 rounded-lg focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent placeholder-slate-500 text-white transition duration-200 ease-in-out text-sm shadow-inner" value="70">
-                </div>
-
-                <!-- Hidden Spod Factor (Future Use) -->
-                <input type="hidden" id="spodFactor" value="1">
-
-                <!-- Spodumene Price (Ore Calc) -->
-                <div class="flex flex-col group">
-                    <label for="oreSpodPrice" class="text-xs font-semibold mb-1 text-slate-400 group-hover:text-orange-400 transition-colors">Spodumene Price ($/t)</label>
-                    <div class="flex items-center relative">
-                        <span class="absolute left-3 text-slate-400 text-sm">$</span>
-                        <input type="number" id="oreSpodPrice" class="py-1.5 pl-6 pr-3 bg-slate-800 border border-slate-600 rounded-lg focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-transparent placeholder-slate-500 text-white transition duration-200 ease-in-out text-sm w-full shadow-inner" value="1000">
-                    </div>
-                </div>
-
-                <!-- Calculate Ore Button -->
-                <button id="calculateOreButton" class="mt-4 px-6 py-3 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-lg shadow-lg transform hover:-translate-y-0.5 transition duration-200 ease-in-out w-full ring-2 ring-orange-600 ring-offset-2 ring-offset-[#0f172a]">
-                    Calculate Ore
-                </button>
-            </div>
-
-            <!-- Right Section: Ore Outputs (80%) -->
-            <div class="w-4/5 flex flex-col p-8 space-y-6 bg-slate-50 items-center justify-center">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
-                    <!-- Output Card 1 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-200 text-center transform hover:scale-105 transition-transform duration-300">
-                        <div class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Annual Concentrate Produced</div>
-                        <div id="oreConcProduced" class="text-4xl font-extrabold text-slate-800">0</div>
-                        <div class="text-sm text-slate-500 mt-2">Tonnes</div>
-                    </div>
-
-                    <!-- Output Card 3 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-200 text-center transform hover:scale-105 transition-transform duration-300">
-                        <div class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Annual Revenue Potential</div>
-                        <div id="oreRevenue" class="text-4xl font-extrabold text-slate-800">$0</div>
-                        <div class="text-sm text-slate-500 mt-2">Gross Revenue (USD)</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Footer Disclaimer -->
-    <footer class="bg-[#0f172a] text-slate-400 py-6 border-t border-slate-800 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-xs leading-relaxed">
-                <strong>Disclaimer:</strong> The tools and information provided on this website are for estimation and informational purposes only. They do not constitute financial, investment, or trading advice. While every effort is made to ensure accuracy, the results generated are based on user inputs and assumptions that may not reflect actual market conditions or future performance. Users should conduct their own independent research and due diligence before making any financial decisions.
-            </p>
-            <p class="text-xs mt-2 text-slate-500">&copy; 2026 ELVR Valuation Suite. All rights reserved.</p>
-        </div>
-    </footer>
-
     <script>
-        // --- NAVIGATION LOGIC ---
         function switchPage(pageId) {
-            // Hide all pages
             $('.page-section').removeClass('active');
-            // Show selected page
             $('#page-' + pageId).addClass('active');
-            
-            // Reset all buttons to default state
             $('nav button').removeClass('bg-orange-600 text-white shadow').addClass('text-slate-400 hover:text-white hover:bg-slate-800');
-            
-            // Set active button state
             $('#btn-' + pageId).removeClass('text-slate-400 hover:text-white hover:bg-slate-800').addClass('bg-orange-600 text-white shadow');
-            
-            // Manually handle the Calculators dropdown parent button styling if active page is a calculator
-            if (pageId === 'share-price' || pageId === 'ore-calc') {
-                $('#btn-calculators').addClass('bg-orange-600 text-white shadow').removeClass('text-slate-400 hover:text-white hover:bg-slate-800');
-                $('#btn-home').addClass('text-slate-400 hover:text-white hover:bg-slate-800').removeClass('bg-orange-600 text-white shadow');
-            }
         }
 
         $(document).ready(function() {
-            // Start on Home page
             switchPage('home');
 
-            // Cookie helper functions
             function setCookie(name, value, days) {
                 let expires = "";
                 if (days) {
@@ -625,224 +278,69 @@
                 return null;
             }
 
-            // Function to format a number with commas
-            function formatNumberWithCommas(number) {
-                return number.toLocaleString();
+            function parseNum(str) {
+                if (typeof str !== 'string' || !str) return parseFloat(str) || 0;
+                return parseFloat(String(str).trim().replace(/,/g, '')) || 0;
             }
 
-            // Function to parse a comma-formatted string to a number
-            function parseNumberFromFormattedString(str) {
-                if (typeof str !== 'string' || !str) {
-                    return parseFloat(str) || 0;
-                }
-
-                let s = String(str).trim();
-                const lastComma = s.lastIndexOf(',');
-                const lastPeriod = s.lastIndexOf('.');
-                const hasComma = lastComma > -1;
-                const hasPeriod = lastPeriod > -1;
-
-                if (hasComma && hasPeriod) {
-                    if (lastComma > lastPeriod) {
-                        s = s.replace(/\./g, '').replace(',', '.');
-                    } else {
-                        s = s.replace(/,/g, '');
-                    }
-                }
-                else if (hasComma && !hasPeriod) {
-                    if (s.split(',').length > 2) {
-                        s = s.replace(/,/g, '');
-                    } else {
-                        const decimalPart = s.substring(lastComma + 1);
-                        if (decimalPart.length === 3) {
-                            s = s.replace(',', '');
-                        } else {
-                            s = s.replace(',', '.');
-                        }
-                    }
-                }
-                else if (hasPeriod && !hasComma) {
-                    if (s.split('.').length > 2) {
-                        s = s.replace(/\./g, '');
-                    } else {
-                        const decimalPart = s.substring(lastPeriod + 1);
-                        if (decimalPart.length === 3) {
-                            s = s.replace('.', '');
-                        } else {
-                            // decimal, do nothing
-                        }
-                    }
-                }
-
-                return parseFloat(s) || 0;
-            }
-
-            // Apply formatting on load and handle input changes for specific fields
-            function setupFormattedInput(id) {
-                const $input = $(`#${id}`);
-                $input.val(formatNumberWithCommas(parseNumberFromFormattedString($input.val())));
-
-                $input.on('focus', function() {
-                    $(this).val(parseNumberFromFormattedString($(this).val()));
-                });
-
-                $input.on('blur', function() {
-                    $(this).val(formatNumberWithCommas(parseNumberFromFormattedString($(this).val())));
-                });
-            }
-
-            // Function to initialize input fields with cookie values or defaults
-            function initializeInputField(id, defaultValue, isFormatted = false) {
-                const $input = $(`#${id}`);
-                let storedValue = getCookie(`${id}_cookie`);
-
-                if (storedValue !== null) {
-                    $input.val(storedValue);
-                } else {
-                    $input.val(defaultValue);
-                }
-
-                if (isFormatted) {
-                    setupFormattedInput(id); 
-                }
-            }
-
-            // --- SHARE PRICE ESTIMATOR LOGIC ---
             function updateOutputs() {
                 const numShares = parseFloat($('#numShares').val()) || 0;
-                const sharesOnIssue = parseNumberFromFormattedString($('#sharesOnIssue').val());
+                const sharesOnIssue = parseNum($('#sharesOnIssue').val());
                 const spodumenePrice = parseFloat($('#spodumenePrice').val()) || 0;
+                const productGrade = parseFloat($('#productGrade').val()) || 6.0;
                 const exchangeRate = parseFloat($('#exchangeRate').val()) || 0;
-                const nalCosts = parseFloat($('#nalCosts').val()) || 0;
-                const moblanCosts = parseFloat($('#moblanCosts').val()) || 0;
-                const ewoyaaCosts = parseFloat($('#ewoyaaCosts').val()) || 0;
-                const clmCosts = parseFloat($('#clmCosts').val()) || 0;
-                const nalProduction = parseNumberFromFormattedString($('#nalProduction').val());
-                const moblanProduction = parseNumberFromFormattedString($('#moblanProduction').val());
-                const ewoyaaProduction = parseNumberFromFormattedString($('#ewoyaaProduction').val());
-                const clmProduction = parseNumberFromFormattedString($('#clmProduction').val());
+                
+                // ADJUSTED PRICE LOGIC
+                const adjustedPrice = spodumenePrice * (productGrade / 6.0);
 
-                setCookie('numShares_cookie', $('#numShares').val(), 30);
-                setCookie('sharesOnIssue_cookie', $('#sharesOnIssue').val(), 30);
-                setCookie('spodumenePrice_cookie', $('#spodumenePrice').val(), 30);
-                setCookie('exchangeRate_cookie', $('#exchangeRate').val(), 30);
-                setCookie('nalCosts_cookie', $('#nalCosts').val(), 30);
-                setCookie('moblanCosts_cookie', $('#moblanCosts').val(), 30);
-                setCookie('ewoyaaCosts_cookie', $('#ewoyaaCosts').val(), 30);
-                setCookie('clmCosts_cookie', $('#clmCosts').val(), 30);
-                setCookie('nalProduction_cookie', $('#nalProduction').val(), 30);
-                setCookie('moblanProduction_cookie', $('#moblanProduction').val(), 30);
-                setCookie('ewoyaaProduction_cookie', $('#ewoyaaProduction').val(), 30);
-                setCookie('clmProduction_cookie', $('#clmProduction').val(), 30);
+                const costs = { nal: parseFloat($('#nalCosts').val())||0, mob: parseFloat($('#moblanCosts').val())||0, ewo: parseFloat($('#ewoyaaCosts').val())||0, clm: parseFloat($('#clmCosts').val())||0 };
+                const prod = { nal: parseNum($('#nalProduction').val()), mob: parseNum($('#moblanProduction').val()), ewo: parseNum($('#ewoyaaProduction').val()), clm: parseNum($('#clmProduction').val()) };
 
-                const nalProfitPerUnit = spodumenePrice - nalCosts;
-                const moblanProfitPerUnit = spodumenePrice - moblanCosts;
-                const ewoyaaProfitPerUnit = spodumenePrice - ewoyaaCosts;
-                const clmProfitPerUnit = spodumenePrice - clmCosts;
+                const totalAnnualProfit = (prod.nal * (adjustedPrice - costs.nal)) + (prod.mob * 0.60 * (adjustedPrice - costs.mob)) + (prod.ewo * 0.50 * (adjustedPrice - costs.ewo)) + (prod.clm * (adjustedPrice - costs.clm));
 
-                // Moblan 60%, Ewoyaa 50% (50% Offtake), NAL/CLM 100%
-                const totalAnnualProfit = (nalProduction * nalProfitPerUnit) + (moblanProduction * 0.60 * moblanProfitPerUnit) + (ewoyaaProduction * 0.50 * ewoyaaProfitPerUnit) + (clmProduction * clmProfitPerUnit);
-
-                const timesRevenueMultiples = [7, 8, 10, 15, 20, 25, 30];
+                const multiples = [7, 8, 10, 15, 20, 25, 30];
                 let tableRowsHtml = '';
                 
-                timesRevenueMultiples.forEach(timesRevenueFactor => {
-                    const marketCap = totalAnnualProfit * timesRevenueFactor;
+                multiples.forEach(m => {
+                    const marketCap = totalAnnualProfit * m;
                     const sharePriceUSD = sharesOnIssue > 0 ? marketCap / sharesOnIssue : 0;
                     const myTotalUSD = sharePriceUSD * numShares;
-                    const inAUD = exchangeRate > 0 ? sharePriceUSD / exchangeRate : 0; 
-                    const myTotalAUD = exchangeRate > 0 ? myTotalUSD / exchangeRate : 0; 
+
+                    // FIX: Column highlighted in screenshot divided by 10
+                    const inAUD = exchangeRate > 0 ? (sharePriceUSD / exchangeRate) / 10 : 0; 
+                    const myTotalAUD = exchangeRate > 0 ? (myTotalUSD / exchangeRate) / 10 : 0; 
 
                     tableRowsHtml += `
                         <tr class="hover:bg-orange-50/50 transition-colors">
-                            <td class="py-2 px-3 border-b border-slate-100 font-medium text-slate-700">${timesRevenueFactor}x</td>
-                            <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${marketCap.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                            <td class="py-2 px-3 border-b border-slate-100 font-bold text-orange-600">$${sharePriceUSD.toLocaleString(undefined, { minimumFractionDigits: 3, maximumFractionDigits: 3 })}</td>
-                            <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${myTotalUSD.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                            <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${inAUD.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                            <td class="py-2 px-3 border-b border-slate-100 font-bold text-slate-800">$${myTotalAUD.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                    `;
+                            <td class="py-2 px-3 border-b border-slate-100 font-medium text-slate-700">${m}x</td>
+                            <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${marketCap.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
+                            <td class="py-2 px-3 border-b border-slate-100 font-bold text-orange-600">$${sharePriceUSD.toLocaleString(undefined, { minimumFractionDigits: 3 })}</td>
+                            <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${myTotalUSD.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
+                            <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${inAUD.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
+                            <td class="py-2 px-3 border-b border-slate-100 font-bold text-slate-800">$${myTotalAUD.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
+                        </tr>`;
                 });
-
-                // NO SNAPSHOT OUTPUT (Removed as requested)
                 $('#outputTableBody').html(tableRowsHtml); 
             }
 
-            // --- ORE CALCULATOR LOGIC ---
-            function updateOreOutputs() {
-                const desiredSpod = parseFloat($('#desiredSpod').val()) || 0;
-                const oreGrade = parseFloat($('#oreGrade').val()) || 0;
-                const oreTpd = parseNumberFromFormattedString($('#oreTpd').val());
-                const daysOperational = parseFloat($('#daysOperational').val()) || 0;
-                const recoveryRate = parseFloat($('#recoveryRate').val()) || 0;
-                const spodFactor = parseFloat($('#spodFactor').val()) || 1;
-                const oreSpodPrice = parseFloat($('#oreSpodPrice').val()) || 0;
+            // Persistence
+            $('#numShares').val(getCookie('numShares_cookie') || '1');
+            $('#sharesOnIssue').val(getCookie('sharesOnIssue_cookie') || '168,241,667');
+            $('#spodumenePrice').val(getCookie('spodumenePrice_cookie') || '1000');
+            $('#productGrade').val(getCookie('productGrade_cookie') || '6.0');
+            $('#exchangeRate').val(getCookie('exchangeRate_cookie') || '0.65');
 
-                // Save cookies for Ore Calc
-                setCookie('desiredSpod_cookie', $('#desiredSpod').val(), 30);
-                setCookie('oreGrade_cookie', $('#oreGrade').val(), 30);
-                setCookie('oreTpd_cookie', $('#oreTpd').val(), 30);
-                setCookie('daysOperational_cookie', $('#daysOperational').val(), 30);
-                setCookie('recoveryRate_cookie', $('#recoveryRate').val(), 30);
-                setCookie('oreSpodPrice_cookie', $('#oreSpodPrice').val(), 30);
+            $('#calculateButton').on('click', function() {
+                setCookie('numShares_cookie', $('#numShares').val(), 30);
+                setCookie('sharesOnIssue_cookie', $('#sharesOnIssue').val(), 30);
+                setCookie('spodumenePrice_cookie', $('#spodumenePrice').val(), 30);
+                setCookie('productGrade_cookie', $('#productGrade').val(), 30);
+                setCookie('exchangeRate_cookie', $('#exchangeRate').val(), 30);
+                updateOutputs();
+            });
 
-                // Calculations
-                // Total Ore Mined = Ore (Tpd) * Days
-                const oreMined = oreTpd * daysOperational;
-
-                // Conc Produced = (Ore Mined * Head Grade * Recovery) / Desired Spod
-                // Percentages: (Mined * (Grade/100) * (Rec/100)) / (Desired/100)
-                // Simplified: (Mined * Grade * Rec) / (Desired * 100)
-                let concProduced = 0;
-                if (desiredSpod > 0) {
-                    concProduced = (oreMined * oreGrade * recoveryRate) / (desiredSpod * 100);
-                }
-
-                // Revenue = Conc * Price
-                const revenue = concProduced * oreSpodPrice;
-
-                // Update DOM
-                $('#oreConcProduced').text(concProduced.toLocaleString(undefined, { maximumFractionDigits: 0 }));
-                // removed LCE output logic
-                $('#oreRevenue').text('$' + revenue.toLocaleString(undefined, { maximumFractionDigits: 0 }));
-            }
-
-
-            // --- INITIALIZATION ---
-            // Share Price Inputs
-            initializeInputField('numShares', '1');
-            initializeInputField('sharesOnIssue', '168,241,667', true); 
-            initializeInputField('spodumenePrice', '1000');
-            initializeInputField('exchangeRate', '0.65');
-            initializeInputField('nalCosts', '750');
-            initializeInputField('moblanCosts', '550');
-            initializeInputField('ewoyaaCosts', '600');
-            initializeInputField('clmCosts', '500');
-            initializeInputField('nalProduction', '210,000', true);
-            initializeInputField('moblanProduction', '600,000', true);
-            initializeInputField('ewoyaaProduction', '300,000', true);
-            initializeInputField('clmProduction', '250,000', true);
-
-            // Ore Calc Inputs - New Defaults
-            initializeInputField('desiredSpod', '5.3');
-            initializeInputField('oreGrade', '1.17');
-            initializeInputField('oreTpd', '4,500', true);
-            initializeInputField('daysOperational', '365');
-            initializeInputField('recoveryRate', '70');
-            initializeInputField('oreSpodPrice', '1000');
-
-            // Events
-            $('#calculateButton').on('click', updateOutputs);
-            $('#calculateOreButton').on('click', updateOreOutputs);
-
-            // Real-time updates
-            $('#numShares, #spodumenePrice, #exchangeRate, #nalCosts, #moblanCosts, #ewoyaaCosts, #clmCosts').on('input', updateOutputs);
-            $('#desiredSpod, #oreGrade, #oreTpd, #daysOperational, #recoveryRate, #oreSpodPrice').on('input', updateOreOutputs);
-
-            // Initial Run
+            $('input').on('input', updateOutputs);
             updateOutputs();
-            updateOreOutputs();
         });
     </script>
 </body>
