@@ -11,7 +11,7 @@
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
-            background-color: #f8fafc; /* Slate-50 background */
+            background-color: #f8fafc;
         }
         
         input[type=number]::-webkit-inner-spin-button, 
@@ -49,7 +49,7 @@
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #f97316; /* Orange-500 hover */
+            background: #f97316;
         }
 
         .dropdown:hover .dropdown-menu {
@@ -67,7 +67,7 @@
                     <span id="site-header-title" class="font-bold text-lg tracking-tight text-slate-100">ELVR Suite</span>
                 </div>
                 <div class="flex space-x-2">
-                    <button onclick="switchPage('home')" id="btn-home" class="px-3 py-1.5 rounded-md text-xs font-medium bg-orange-600 text-white transition-all duration-200 shadow-md">Home</button>
+                    <button onclick="switchPage('home')" id="btn-home" class="px-3 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200">Home</button>
                     <button onclick="switchPage('assets')" id="btn-assets" class="px-3 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200">Assets</button>
 
                     <div class="relative dropdown">
@@ -131,39 +131,47 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-16 h-16 bg-teal-50 rounded-bl-full -mr-8 -mt-8"></div>
-                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">NAL</h3><p class="text-xs text-slate-500 uppercase tracking-wide">Quebec, Canada</p></div>
+                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">NAL</h3><p class="text-xs text-slate-500 font-semibold uppercase tracking-wide">Quebec, Canada</p></div>
                 <div class="space-y-3 mb-6 relative z-10 flex-grow">
                     <div><p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p><p class="text-sm font-semibold text-slate-700">95.0 Mt @ 1.15%</p></div>
                     <div><p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p><p class="text-sm font-semibold text-slate-700">49.0 Mt @ 1.11%</p></div>
                 </div>
-                <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100"><span class="px-2 py-1 bg-teal-100 text-teal-800 text-xs font-bold rounded">100% Owned</span></div>
+                <div class="flex items-center justify-between mt-auto relative pt-4 border-t border-slate-100">
+                    <span class="px-2 py-1 bg-teal-100 text-teal-800 text-xs font-bold rounded">100% Owned</span>
+                </div>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 rounded-bl-full -mr-8 -mt-8"></div>
-                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">Moblan</h3><p class="text-xs text-slate-500 uppercase tracking-wide">Quebec, Canada</p></div>
+                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">Moblan</h3><p class="text-xs text-slate-500 font-semibold uppercase tracking-wide">Quebec, Canada</p></div>
                 <div class="space-y-3 mb-6 relative z-10 flex-grow">
                     <div><p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p><p class="text-sm font-semibold text-slate-700">121.0 Mt @ 1.19%</p></div>
                     <div><p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p><p class="text-sm font-semibold text-slate-700">48.1 Mt @ 1.31%</p></div>
                 </div>
-                <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100"><span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded">60% Owned</span></div>
+                <div class="flex items-center justify-between mt-auto relative pt-4 border-t border-slate-100">
+                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded">60% Owned</span>
+                </div>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-16 h-16 bg-orange-50 rounded-bl-full -mr-8 -mt-8"></div>
-                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">Ewoyaa</h3><p class="text-xs text-slate-500 uppercase tracking-wide">Ghana</p></div>
+                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">Ewoyaa</h3><p class="text-xs text-slate-500 font-semibold uppercase tracking-wide">Ghana</p></div>
                 <div class="space-y-3 mb-6 relative z-10 flex-grow">
                     <div><p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p><p class="text-sm font-semibold text-slate-700">35.3 Mt @ 1.25%</p></div>
                     <div><p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p><p class="text-sm font-semibold text-slate-700">25.6 Mt @ 1.22%</p></div>
                 </div>
-                <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100"><span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-bold rounded">22.5% Owned</span></div>
+                <div class="flex items-center justify-between mt-auto relative pt-4 border-t border-slate-100">
+                    <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-bold rounded">22.5% Owned</span>
+                </div>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-16 h-16 bg-purple-50 rounded-bl-full -mr-8 -mt-8"></div>
-                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">Carolina Lithium</h3><p class="text-xs text-slate-500 uppercase tracking-wide">USA</p></div>
+                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">Carolina Lithium</h3><p class="text-xs text-slate-500 font-semibold uppercase tracking-wide">USA</p></div>
                 <div class="space-y-3 mb-6 relative z-10 flex-grow">
                     <div><p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p><p class="text-sm font-semibold text-slate-700">44.2 Mt @ 1.08%</p></div>
                     <div><p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p><p class="text-sm font-semibold text-slate-700">18.3 Mt @ 1.10%</p></div>
                 </div>
-                <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100"><span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded">100% Owned</span></div>
+                <div class="flex items-center justify-between mt-auto relative pt-4 border-t border-slate-100">
+                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded">100% Owned</span>
+                </div>
             </div>
         </div>
     </div>
@@ -204,20 +212,26 @@
                     <input type="number" id="exchangeRate" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs shadow-inner" value="0.65">
                 </div>
 
-                <div class="pt-1 pb-1 border-b border-slate-700"><h3 class="text-[10px] font-bold text-orange-500 uppercase">Costs</h3></div>
+                <div class="pt-1 pb-1 border-b border-slate-700">
+                    <h3 class="text-[10px] font-bold text-orange-500 uppercase tracking-wider">Costs</h3>
+                </div>
+                
                 <div class="grid grid-cols-2 gap-2">
-                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">NAL</label><input type="number" id="nalCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="750"></div>
-                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">MOBLAN</label><input type="number" id="moblanCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="550"></div>
-                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">EWOYAA</label><input type="number" id="ewoyaaCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="600"></div>
-                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">CLM</label><input type="number" id="clmCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="500"></div>
+                    <div class="flex flex-col"><label for="nalCosts" class="text-[9px] text-slate-400 uppercase">NAL</label><input type="number" id="nalCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="750"></div>
+                    <div class="flex flex-col"><label for="moblanCosts" class="text-[9px] text-slate-400 uppercase">MOBLAN</label><input type="number" id="moblanCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="550"></div>
+                    <div class="flex flex-col"><label for="ewoyaaCosts" class="text-[9px] text-slate-400 uppercase">EWOYAA</label><input type="number" id="ewoyaaCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="600"></div>
+                    <div class="flex flex-col"><label for="clmCosts" class="text-[9px] text-slate-400 uppercase">CLM</label><input type="number" id="clmCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="500"></div>
                 </div>
 
-                <div class="pt-1 pb-1 border-b border-slate-700"><h3 class="text-[10px] font-bold text-orange-500 uppercase">Production</h3></div>
+                <div class="pt-1 pb-1 border-b border-slate-700">
+                    <h3 class="text-[10px] font-bold text-orange-500 uppercase tracking-wider">Production</h3>
+                </div>
+
                 <div class="grid grid-cols-2 gap-2">
-                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">NAL</label><input type="text" id="nalProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="210,000"></div>
-                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">MOBLAN</label><input type="text" id="moblanProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="600,000"></div>
-                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">EWOYAA</label><input type="text" id="ewoyaaProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="300,000"></div>
-                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">CLM</label><input type="text" id="clmProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="250,000"></div>
+                    <div class="flex flex-col"><label for="nalProduction" class="text-[9px] text-slate-400 uppercase">NAL</label><input type="text" id="nalProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px] w-full" value="210,000"></div>
+                    <div class="flex flex-col"><label for="moblanProduction" class="text-[9px] text-slate-400 uppercase">MOBLAN</label><input type="text" id="moblanProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px] w-full" value="600,000"></div>
+                    <div class="flex flex-col"><label for="ewoyaaProduction" class="text-[9px] text-slate-400 uppercase">EWOYAA</label><input type="text" id="ewoyaaProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px] w-full" value="300,000"></div>
+                    <div class="flex flex-col"><label for="clmProduction" class="text-[9px] text-slate-400 uppercase">CLM</label><input type="text" id="clmProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px] w-full" value="250,000"></div>
                 </div>
 
                 <button id="calculateButton" class="mt-2 px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded shadow-lg transition duration-200 text-xs">Calculate</button>
@@ -290,7 +304,7 @@
                 const productGrade = parseFloat($('#productGrade').val()) || 6.0;
                 const exchangeRate = parseFloat($('#exchangeRate').val()) || 0;
                 
-                // ADJUSTED PRICE LOGIC
+                // 1. Applied Grade Adjustment to the Price
                 const adjustedPrice = spodumenePrice * (productGrade / 6.0);
 
                 const costs = { nal: parseFloat($('#nalCosts').val())||0, mob: parseFloat($('#moblanCosts').val())||0, ewo: parseFloat($('#ewoyaaCosts').val())||0, clm: parseFloat($('#clmCosts').val())||0 };
@@ -303,10 +317,11 @@
                 
                 multiples.forEach(m => {
                     const marketCap = totalAnnualProfit * m;
+                    // Share Price USD: Market Cap / SOI (standard math as in first screenshot)
                     const sharePriceUSD = sharesOnIssue > 0 ? marketCap / sharesOnIssue : 0;
                     const myTotalUSD = sharePriceUSD * numShares;
-
-                    // FIX: Column highlighted in screenshot divided by 10
+                    
+                    // 2. Applied Divide-by-10 adjustment ONLY to AUD columns
                     const inAUD = exchangeRate > 0 ? (sharePriceUSD / exchangeRate) / 10 : 0; 
                     const myTotalAUD = exchangeRate > 0 ? (myTotalUSD / exchangeRate) / 10 : 0; 
 
@@ -314,31 +329,23 @@
                         <tr class="hover:bg-orange-50/50 transition-colors">
                             <td class="py-2 px-3 border-b border-slate-100 font-medium text-slate-700">${m}x</td>
                             <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${marketCap.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
-                            <td class="py-2 px-3 border-b border-slate-100 font-bold text-orange-600">$${sharePriceUSD.toLocaleString(undefined, { minimumFractionDigits: 3 })}</td>
-                            <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${myTotalUSD.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
-                            <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${inAUD.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
-                            <td class="py-2 px-3 border-b border-slate-100 font-bold text-slate-800">$${myTotalAUD.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
+                            <td class="py-2 px-3 border-b border-slate-100 font-bold text-orange-600">$${sharePriceUSD.toLocaleString(undefined, { minimumFractionDigits: 3, maximumFractionDigits: 3 })}</td>
+                            <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${myTotalUSD.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                            <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${inAUD.toLocaleString(undefined, { minimumFractionDigits: 3, maximumFractionDigits: 3 })}</td>
+                            <td class="py-2 px-3 border-b border-slate-100 font-bold text-slate-800">$${myTotalAUD.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                         </tr>`;
                 });
                 $('#outputTableBody').html(tableRowsHtml); 
             }
 
-            // Persistence
+            // Restore original default values
             $('#numShares').val(getCookie('numShares_cookie') || '1');
             $('#sharesOnIssue').val(getCookie('sharesOnIssue_cookie') || '168,241,667');
             $('#spodumenePrice').val(getCookie('spodumenePrice_cookie') || '1000');
             $('#productGrade').val(getCookie('productGrade_cookie') || '6.0');
             $('#exchangeRate').val(getCookie('exchangeRate_cookie') || '0.65');
 
-            $('#calculateButton').on('click', function() {
-                setCookie('numShares_cookie', $('#numShares').val(), 30);
-                setCookie('sharesOnIssue_cookie', $('#sharesOnIssue').val(), 30);
-                setCookie('spodumenePrice_cookie', $('#spodumenePrice').val(), 30);
-                setCookie('productGrade_cookie', $('#productGrade').val(), 30);
-                setCookie('exchangeRate_cookie', $('#exchangeRate').val(), 30);
-                updateOutputs();
-            });
-
+            $('#calculateButton').on('click', updateOutputs);
             $('input').on('input', updateOutputs);
             updateOutputs();
         });
