@@ -8,53 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            background-color: #f8fafc;
-        }
-        
-        input[type=number]::-webkit-inner-spin-button, 
-        input[type=number]::-webkit-outer-spin-button { 
-            -webkit-appearance: none; 
-            margin: 0; 
-        }
-
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
-
-        .page-section {
-            display: none;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-        
-        .page-section.active {
-            display: flex;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #f97316;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: #f8fafc; }
+        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+        input[type=number] { -moz-appearance: textfield; }
+        .page-section { display: none; animation: fadeIn 0.3s ease-in-out; }
+        .page-section.active { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f97316; }
+        .dropdown:hover .dropdown-menu { display: block; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col text-slate-800">
@@ -63,21 +27,17 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex items-center justify-between h-14">
                 <div class="flex items-center gap-3 cursor-pointer" onclick="switchPage('home')">
-                    <div class="w-7 h-7 bg-orange-600 rounded flex items-center justify-center font-bold text-white shadow-lg shadow-orange-500/20 text-sm">E</div>
-                    <span id="site-header-title" class="font-bold text-lg tracking-tight text-slate-100">ELVR Suite</span>
+                    <div class="w-7 h-7 bg-orange-600 rounded flex items-center justify-center font-bold text-white text-sm">E</div>
+                    <span class="font-bold text-lg text-slate-100">ELVR Suite</span>
                 </div>
                 <div class="flex space-x-2">
-                    <button onclick="switchPage('home')" id="btn-home" class="px-3 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200">Home</button>
-                    <button onclick="switchPage('assets')" id="btn-assets" class="px-3 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200">Assets</button>
-
+                    <button onclick="switchPage('home')" id="btn-home" class="px-3 py-1.5 rounded-md text-xs font-medium bg-orange-600 text-white">Home</button>
+                    <button onclick="switchPage('assets')" id="btn-assets" class="px-3 py-1.5 rounded-md text-xs text-slate-400">Assets</button>
                     <div class="relative dropdown">
-                        <button id="btn-calculators" class="px-3 py-1.5 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors duration-200 flex items-center gap-1">
-                            Calculators
-                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
+                        <button class="px-3 py-1.5 rounded-md text-xs text-slate-400 flex items-center gap-1">Calculators <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                         <div class="dropdown-menu absolute right-0 w-48 bg-white rounded-md shadow-lg py-1 hidden border border-slate-200 z-50">
-                            <a href="#" onclick="switchPage('share-price'); return false;" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-orange-600">Share Price Estimator</a>
-                            <a href="#" onclick="switchPage('ore-calc'); return false;" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-orange-600">Ore Calculator</a>
+                            <a href="#" onclick="switchPage('share-price'); return false;" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Share Price Estimator</a>
+                            <a href="#" onclick="switchPage('ore-calc'); return false;" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Ore Calculator</a>
                         </div>
                     </div>
                 </div>
@@ -85,171 +45,51 @@
         </div>
     </nav>
 
-    <div id="page-home" class="page-section active flex-col p-6 max-w-7xl mx-auto w-full">
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8 text-center md:text-left relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full -mr-10 -mt-10 z-0"></div>
-            <div class="relative z-10 flex flex-col md:flex-row gap-6">
-                <div class="md:w-2/3">
-                    <h1 class="text-3xl font-extrabold text-slate-900 mb-4">Valuation & Scenario Modeling</h1>
-                    <p class="text-slate-600 max-w-3xl text-lg leading-relaxed mb-6">
-                        This suite provides tools to estimate market capitalization, share price, and ore metrics across the ELVR portfolio based on variable commodity pricing and production outputs.
-                    </p>
-                    <div class="flex gap-4 justify-center md:justify-start">
-                        <button onclick="switchPage('share-price')" class="px-6 py-3 bg-orange-600 text-white font-bold rounded-lg shadow-lg shadow-orange-200 hover:bg-orange-500 transition-all transform hover:-translate-y-0.5">
-                            Share Price Estimator &rarr;
-                        </button>
-                        <button onclick="switchPage('ore-calc')" class="px-6 py-3 bg-slate-700 text-white font-bold rounded-lg shadow-lg hover:bg-slate-600 transition-all transform hover:-translate-y-0.5">
-                            Ore Calculator &rarr;
-                        </button>
-                    </div>
-                </div>
-                <div class="md:w-1/3 bg-slate-50 rounded-xl border border-slate-200 p-1 flex items-center justify-center relative overflow-hidden h-64 md:h-auto">
-                    <div class="tradingview-widget-container w-full h-full">
-                      <div class="tradingview-widget-container__widget w-full h-full"></div>
-                      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
-                      {
-                      "interval": "1D",
-                      "width": "100%",
-                      "isTransparent": true,
-                      "height": "100%",
-                      "symbol": "ASX:ELV",
-                      "showIntervalTabs": true,
-                      "displayMode": "single",
-                      "locale": "en",
-                      "colorTheme": "light",
-                      "hideSymbolLogo": true
-                    }
-                      </script>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="page-assets" class="page-section flex-col p-6 max-w-7xl mx-auto w-full">
-        <h2 class="text-xl font-bold text-slate-800 mb-4 px-1 border-l-4 border-orange-500 pl-3">Asset Portfolio Overview</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-16 h-16 bg-teal-50 rounded-bl-full -mr-8 -mt-8"></div>
-                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">NAL</h3><p class="text-xs text-slate-500 font-semibold uppercase tracking-wide">Quebec, Canada</p></div>
-                <div class="space-y-3 mb-6 relative z-10 flex-grow">
-                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p><p class="text-sm font-semibold text-slate-700">95.0 Mt @ 1.15%</p></div>
-                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p><p class="text-sm font-semibold text-slate-700">49.0 Mt @ 1.11%</p></div>
-                </div>
-                <div class="flex items-center justify-between mt-auto relative pt-4 border-t border-slate-100">
-                    <span class="px-2 py-1 bg-teal-100 text-teal-800 text-xs font-bold rounded">100% Owned</span>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 rounded-bl-full -mr-8 -mt-8"></div>
-                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">Moblan</h3><p class="text-xs text-slate-500 font-semibold uppercase tracking-wide">Quebec, Canada</p></div>
-                <div class="space-y-3 mb-6 relative z-10 flex-grow">
-                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p><p class="text-sm font-semibold text-slate-700">121.0 Mt @ 1.19%</p></div>
-                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p><p class="text-sm font-semibold text-slate-700">48.1 Mt @ 1.31%</p></div>
-                </div>
-                <div class="flex items-center justify-between mt-auto relative pt-4 border-t border-slate-100">
-                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded">60% Owned</span>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-16 h-16 bg-orange-50 rounded-bl-full -mr-8 -mt-8"></div>
-                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">Ewoyaa</h3><p class="text-xs text-slate-500 font-semibold uppercase tracking-wide">Ghana</p></div>
-                <div class="space-y-3 mb-6 relative z-10 flex-grow">
-                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p><p class="text-sm font-semibold text-slate-700">35.3 Mt @ 1.25%</p></div>
-                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p><p class="text-sm font-semibold text-slate-700">25.6 Mt @ 1.22%</p></div>
-                </div>
-                <div class="flex items-center justify-between mt-auto relative pt-4 border-t border-slate-100">
-                    <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-bold rounded">22.5% Owned</span>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-16 h-16 bg-purple-50 rounded-bl-full -mr-8 -mt-8"></div>
-                <div class="mb-4 relative z-10"><h3 class="text-xl font-bold text-slate-800">Carolina Lithium</h3><p class="text-xs text-slate-500 font-semibold uppercase tracking-wide">USA</p></div>
-                <div class="space-y-3 mb-6 relative z-10 flex-grow">
-                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Resource</p><p class="text-sm font-semibold text-slate-700">44.2 Mt @ 1.08%</p></div>
-                    <div><p class="text-[10px] text-slate-400 uppercase font-bold">Reserve</p><p class="text-sm font-semibold text-slate-700">18.3 Mt @ 1.10%</p></div>
-                </div>
-                <div class="flex items-center justify-between mt-auto relative pt-4 border-t border-slate-100">
-                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded">100% Owned</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="page-share-price" class="page-section flex-grow p-4">
+    <div id="page-share-price" class="page-section active flex-grow p-4">
         <div class="flex flex-grow bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden w-full h-[calc(100vh-6rem)]">
             
             <div class="w-1/5 bg-[#0f172a] p-3 flex flex-col space-y-2 text-white shadow-lg overflow-y-auto border-r border-slate-800">
-                <div class="pb-1 border-b border-slate-700 mb-0">
-                    <h3 class="text-sm font-bold text-orange-500">Estimator Inputs</h3>
-                </div>
+                <div class="pb-1 border-b border-slate-700"><h3 class="text-sm font-bold text-orange-500">Estimator Inputs</h3></div>
                 
-                <div class="flex flex-col group">
-                    <label for="numShares" class="text-[10px] font-semibold mb-0.5 text-slate-400"># Shares</label>
-                    <input type="number" id="numShares" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs shadow-inner" value="1">
-                </div>
-
-                <div class="flex flex-col group">
-                    <label for="sharesOnIssue" class="text-[10px] font-semibold mb-0.5 text-slate-400">SOI</label>
-                    <input type="text" id="sharesOnIssue" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs shadow-inner" value="168,241,667">
-                </div>
-
-                <div class="flex flex-col group">
-                    <label for="spodumenePrice" class="text-[10px] font-semibold mb-0.5 text-slate-400">Spodumene Price</label>
-                    <div class="flex items-center relative">
-                        <span class="absolute left-2 text-slate-400 text-[10px]">$</span>
-                        <input type="number" id="spodumenePrice" class="py-1 pl-4 pr-2 bg-slate-800 border border-slate-600 rounded text-white text-xs w-full shadow-inner" value="1000">
-                    </div>
-                </div>
-
-                <div class="flex flex-col group">
-                    <label for="productGrade" class="text-[10px] font-semibold mb-0.5 text-slate-400">% Grade</label>
-                    <input type="number" id="productGrade" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs shadow-inner" value="6.0" step="0.1">
-                </div>
-
-                <div class="flex flex-col group">
-                    <label for="exchangeRate" class="text-[10px] font-semibold mb-0.5 text-slate-400">Exch Rate</label>
-                    <input type="number" id="exchangeRate" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs shadow-inner" value="0.65">
-                </div>
-
-                <div class="pt-1 pb-1 border-b border-slate-700">
-                    <h3 class="text-[10px] font-bold text-orange-500 uppercase tracking-wider">Costs</h3>
-                </div>
+                <div class="flex flex-col"><label class="text-[10px] text-slate-400"># Shares</label><input type="number" id="numShares" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs" value="1"></div>
+                <div class="flex flex-col"><label class="text-[10px] text-slate-400">SOI</label><input type="text" id="sharesOnIssue" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs" value="168,241,667"></div>
+                <div class="flex flex-col"><label class="text-[10px] text-slate-400">Spodumene Price ($)</label><input type="number" id="spodumenePrice" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs" value="1000"></div>
                 
+                <div class="flex flex-col"><label class="text-[10px] text-slate-400">% Grade</label><input type="number" id="productGrade" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs" value="6.0" step="0.1"></div>
+                
+                <div class="flex flex-col"><label class="text-[10px] text-slate-400">Exch Rate</label><input type="number" id="exchangeRate" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs" value="0.65"></div>
+
+                <div class="pt-1 pb-1 border-b border-slate-700"><h3 class="text-[10px] font-bold text-orange-500 uppercase">Costs</h3></div>
                 <div class="grid grid-cols-2 gap-2">
-                    <div class="flex flex-col"><label for="nalCosts" class="text-[9px] text-slate-400 uppercase">NAL</label><input type="number" id="nalCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="750"></div>
-                    <div class="flex flex-col"><label for="moblanCosts" class="text-[9px] text-slate-400 uppercase">MOBLAN</label><input type="number" id="moblanCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="550"></div>
-                    <div class="flex flex-col"><label for="ewoyaaCosts" class="text-[9px] text-slate-400 uppercase">EWOYAA</label><input type="number" id="ewoyaaCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="600"></div>
-                    <div class="flex flex-col"><label for="clmCosts" class="text-[9px] text-slate-400 uppercase">CLM</label><input type="number" id="clmCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="500"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">NAL</label><input type="number" id="nalCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="750"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">Moblan</label><input type="number" id="moblanCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="550"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">Ewoyaa</label><input type="number" id="ewoyaaCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="600"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">CLM</label><input type="number" id="clmCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="500"></div>
                 </div>
 
-                <div class="pt-1 pb-1 border-b border-slate-700">
-                    <h3 class="text-[10px] font-bold text-orange-500 uppercase tracking-wider">Production</h3>
-                </div>
-
+                <div class="pt-1 pb-1 border-b border-slate-700"><h3 class="text-[10px] font-bold text-orange-500 uppercase">Production</h3></div>
                 <div class="grid grid-cols-2 gap-2">
-                    <div class="flex flex-col"><label for="nalProduction" class="text-[9px] text-slate-400 uppercase">NAL</label><input type="text" id="nalProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px] w-full" value="210,000"></div>
-                    <div class="flex flex-col"><label for="moblanProduction" class="text-[9px] text-slate-400 uppercase">MOBLAN</label><input type="text" id="moblanProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px] w-full" value="600,000"></div>
-                    <div class="flex flex-col"><label for="ewoyaaProduction" class="text-[9px] text-slate-400 uppercase">EWOYAA</label><input type="text" id="ewoyaaProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px] w-full" value="300,000"></div>
-                    <div class="flex flex-col"><label for="clmProduction" class="text-[9px] text-slate-400 uppercase">CLM</label><input type="text" id="clmProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px] w-full" value="250,000"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">NAL</label><input type="text" id="nalProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="210,000"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">Moblan</label><input type="text" id="moblanProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="600,000"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">Ewoyaa</label><input type="text" id="ewoyaaProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="300,000"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">CLM</label><input type="text" id="clmProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="250,000"></div>
                 </div>
-
-                <button id="calculateButton" class="mt-2 px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded shadow-lg transition duration-200 text-xs">Calculate</button>
+                <button id="calculateButton" class="mt-2 px-4 py-2 bg-orange-600 text-white font-bold rounded text-xs">Calculate</button>
             </div>
 
-            <div class="w-4/5 flex flex-col p-4 space-y-4 bg-slate-50 h-full overflow-hidden">
-                <div class="h-full bg-white p-4 border border-slate-200 rounded-xl shadow-sm flex flex-col overflow-hidden">
-                    <div class="border-b border-slate-100 pb-2 mb-2"><h2 class="text-sm font-bold text-slate-800">Detailed Forecast Table</h2></div>
-                    <div class="text-gray-700 text-sm flex-grow overflow-auto">
-                        <table class="min-w-full bg-white text-xs">
-                            <thead class="bg-slate-100 text-slate-600 uppercase text-[10px] font-bold tracking-wider sticky top-0">
+            <div class="w-4/5 p-4 bg-slate-50 h-full overflow-hidden">
+                <div class="bg-white p-4 border border-slate-200 rounded-xl h-full flex flex-col overflow-hidden">
+                    <h2 class="text-sm font-bold text-slate-800 border-b pb-2 mb-2">Detailed Forecast Table</h2>
+                    <div class="flex-grow overflow-auto">
+                        <table class="min-w-full text-xs">
+                            <thead class="bg-slate-100 text-slate-600 uppercase text-[10px] font-bold sticky top-0">
                                 <tr>
-                                    <th class="py-2 px-3 text-left rounded-l-lg">Times Revenue</th>
+                                    <th class="py-2 px-3 text-left">Times Revenue</th>
                                     <th class="py-2 px-3 text-left">Market Cap</th>
                                     <th class="py-2 px-3 text-left text-orange-600">Share Price USD</th>
                                     <th class="py-2 px-3 text-left">My Total US$</th>
                                     <th class="py-2 px-3 text-left">IN AUD</th>
-                                    <th class="py-2 px-3 text-left rounded-r-lg">My Total AUD</th>
+                                    <th class="py-2 px-3 text-left">My Total AUD</th>
                                 </tr>
                             </thead>
                             <tbody id="outputTableBody" class="divide-y divide-slate-100"></tbody>
@@ -262,88 +102,50 @@
 
     <script>
         function switchPage(pageId) {
-            $('.page-section').removeClass('active');
-            $('#page-' + pageId).addClass('active');
-            $('nav button').removeClass('bg-orange-600 text-white shadow').addClass('text-slate-400 hover:text-white hover:bg-slate-800');
-            $('#btn-' + pageId).removeClass('text-slate-400 hover:text-white hover:bg-slate-800').addClass('bg-orange-600 text-white shadow');
+            $('.page-section').removeClass('active'); $('#page-' + pageId).addClass('active');
+            $('nav button').removeClass('bg-orange-600 text-white').addClass('text-slate-400');
+            $('#btn-' + pageId).addClass('bg-orange-600 text-white').removeClass('text-slate-400');
         }
 
         $(document).ready(function() {
-            switchPage('home');
-
-            function setCookie(name, value, days) {
-                let expires = "";
-                if (days) {
-                    const date = new Date();
-                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                    expires = "; expires=" + date.toUTCString();
-                }
-                document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-            }
-
-            function getCookie(name) {
-                const nameEQ = name + "=";
-                const ca = document.cookie.split(';');
-                for(let i=0; i < ca.length; i++) {
-                    let c = ca[i];
-                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-                }
-                return null;
-            }
-
-            function parseNum(str) {
-                if (typeof str !== 'string' || !str) return parseFloat(str) || 0;
-                return parseFloat(String(str).trim().replace(/,/g, '')) || 0;
-            }
+            function parseNum(str) { return parseFloat(String(str).replace(/,/g, '')) || 0; }
 
             function updateOutputs() {
                 const numShares = parseFloat($('#numShares').val()) || 0;
-                const sharesOnIssue = parseNum($('#sharesOnIssue').val());
-                const spodumenePrice = parseFloat($('#spodumenePrice').val()) || 0;
-                const productGrade = parseFloat($('#productGrade').val()) || 6.0;
-                const exchangeRate = parseFloat($('#exchangeRate').val()) || 0;
-                
-                // 1. Applied Grade Adjustment to the Price
-                const adjustedPrice = spodumenePrice * (productGrade / 6.0);
+                const SOI = parseNum($('#sharesOnIssue').val());
+                const spodPrice = parseFloat($('#spodumenePrice').val()) || 0;
+                const grade = parseFloat($('#productGrade').val()) || 6.0;
+                const exch = parseFloat($('#exchangeRate').val()) || 0;
+
+                // GRADE FIX: Benchmark adjusted by user grade
+                const adjPrice = spodPrice * (grade / 6.0);
 
                 const costs = { nal: parseFloat($('#nalCosts').val())||0, mob: parseFloat($('#moblanCosts').val())||0, ewo: parseFloat($('#ewoyaaCosts').val())||0, clm: parseFloat($('#clmCosts').val())||0 };
                 const prod = { nal: parseNum($('#nalProduction').val()), mob: parseNum($('#moblanProduction').val()), ewo: parseNum($('#ewoyaaProduction').val()), clm: parseNum($('#clmProduction').val()) };
 
-                const totalAnnualProfit = (prod.nal * (adjustedPrice - costs.nal)) + (prod.mob * 0.60 * (adjustedPrice - costs.mob)) + (prod.ewo * 0.50 * (adjustedPrice - costs.ewo)) + (prod.clm * (adjustedPrice - costs.clm));
+                const profit = (prod.nal*(adjPrice-costs.nal)) + (prod.mob*0.60*(adjPrice-costs.mob)) + (prod.ewo*0.50*(adjPrice-costs.ewo)) + (prod.clm*(adjPrice-costs.clm));
 
-                const multiples = [7, 8, 10, 15, 20, 25, 30];
-                let tableRowsHtml = '';
-                
-                multiples.forEach(m => {
-                    const marketCap = totalAnnualProfit * m;
-                    // Share Price USD: Market Cap / SOI (standard math as in first screenshot)
-                    const sharePriceUSD = sharesOnIssue > 0 ? marketCap / sharesOnIssue : 0;
-                    const myTotalUSD = sharePriceUSD * numShares;
-                    
-                    // 2. Applied Divide-by-10 adjustment ONLY to AUD columns
-                    const inAUD = exchangeRate > 0 ? (sharePriceUSD / exchangeRate) / 10 : 0; 
-                    const myTotalAUD = exchangeRate > 0 ? (myTotalUSD / exchangeRate) / 10 : 0; 
+                let rows = '';
+                [7, 8, 10, 15, 20, 25, 30].forEach(m => {
+                    const cap = profit * m;
+                    const usdPrice = SOI > 0 ? cap / SOI : 0;
+                    const myUSD = usdPrice * numShares;
 
-                    tableRowsHtml += `
-                        <tr class="hover:bg-orange-50/50 transition-colors">
-                            <td class="py-2 px-3 border-b border-slate-100 font-medium text-slate-700">${m}x</td>
-                            <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${marketCap.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
-                            <td class="py-2 px-3 border-b border-slate-100 font-bold text-orange-600">$${sharePriceUSD.toLocaleString(undefined, { minimumFractionDigits: 3, maximumFractionDigits: 3 })}</td>
-                            <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${myTotalUSD.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                            <td class="py-2 px-3 border-b border-slate-100 text-slate-600">$${inAUD.toLocaleString(undefined, { minimumFractionDigits: 3, maximumFractionDigits: 3 })}</td>
-                            <td class="py-2 px-3 border-b border-slate-100 font-bold text-slate-800">$${myTotalAUD.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>`;
+                    // AUD FIX: Converting to AUD then DIVIDING BY 10
+                    const audPrice = exch > 0 ? (usdPrice / exch) / 10 : 0;
+                    const myAUD = exch > 0 ? (myUSD / exch) / 10 : 0;
+
+                    rows += `<tr class="hover:bg-orange-50/50">
+                        <td class="py-2 px-3 font-medium">${m}x</td>
+                        <td class="py-2 px-3">$${cap.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
+                        <td class="py-2 px-3 font-bold text-orange-600">$${usdPrice.toLocaleString(undefined, { minimumFractionDigits: 3, maximumFractionDigits: 3 })}</td>
+                        <td class="py-2 px-3">$${myUSD.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        <td class="py-2 px-3">$${audPrice.toLocaleString(undefined, { minimumFractionDigits: 3, maximumFractionDigits: 3 })}</td>
+                        <td class="py-2 px-3 font-bold">$${myAUD.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                    </tr>`;
                 });
-                $('#outputTableBody').html(tableRowsHtml); 
+                $('#outputTableBody').html(rows);
             }
-
-            // Restore original default values
-            $('#numShares').val(getCookie('numShares_cookie') || '1');
-            $('#sharesOnIssue').val(getCookie('sharesOnIssue_cookie') || '168,241,667');
-            $('#spodumenePrice').val(getCookie('spodumenePrice_cookie') || '1000');
-            $('#productGrade').val(getCookie('productGrade_cookie') || '6.0');
-            $('#exchangeRate').val(getCookie('exchangeRate_cookie') || '0.65');
 
             $('#calculateButton').on('click', updateOutputs);
             $('input').on('input', updateOutputs);
