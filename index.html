@@ -83,7 +83,7 @@
                 <div class="absolute top-4 left-4 z-20 flex gap-2">
                     <button onclick="document.getElementById('metal-iframe').src = document.getElementById('metal-iframe').src" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-2 py-1 rounded border border-slate-300 font-semibold shadow-sm">Refresh Price</button>
                 </div>
-                <iframe id="metal-iframe" src="https://www.metal.com/Lithium/lc2605?type=1%20Minute" class="absolute -top-[140px] left-0 w-full h-[800px] border-0" scrolling="no"></iframe>
+                <iframe id="metal-iframe" src="https://www-old.metal.com/Lithium/lc2609?type=1%20Minute" class="absolute -top-[140px] left-0 w-full h-[800px] border-0" scrolling="no"></iframe>
             </div>
         </div>
     </div>
@@ -92,24 +92,24 @@
         <div class="flex flex-grow bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden w-full h-[calc(100vh-6rem)]">
             <div class="w-1/5 bg-[#0f172a] p-3 flex flex-col space-y-2 text-white shadow-lg overflow-y-auto border-r border-slate-800">
                 <div class="pb-1 border-b border-slate-700 mb-0"><h3 class="text-sm font-bold text-orange-500">Estimator Inputs</h3></div>
-                <div class="flex flex-col"><label for="numShares" class="text-[10px] font-semibold mb-0.5 text-slate-400"># Shares</label><input type="number" id="numShares" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs" value="1"></div>
-                <div class="flex flex-col"><label for="sharesOnIssue" class="text-[10px] font-semibold mb-0.5 text-slate-400">SOI</label><input type="text" id="sharesOnIssue" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs" value="168,241,667"></div>
-                <div class="flex flex-col"><label for="spodumenePrice" class="text-[10px] font-semibold mb-0.5 text-slate-400">Spodumene Price</label><div class="flex items-center relative"><span class="absolute left-2 text-slate-400 text-[10px]">$</span><input type="number" id="spodumenePrice" class="py-1 pl-4 pr-2 bg-slate-800 border border-slate-600 rounded text-white text-xs w-full shadow-inner" value="1000"></div></div>
-                <div class="flex flex-col"><label for="productGrade" class="text-[10px] font-semibold mb-0.5 text-slate-400">% Grade</label><input type="number" id="productGrade" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs" value="6.0" step="0.1"></div>
-                <div class="flex flex-col"><label for="exchangeRate" class="text-[10px] font-semibold mb-0.5 text-slate-400">Exch Rate</label><input type="number" id="exchangeRate" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs" value="0.65"></div>
+                <div class="flex flex-col group"><label for="numShares" class="text-[10px] font-semibold mb-0.5 text-slate-400"># Shares</label><input type="number" id="numShares" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs" value="1"></div>
+                <div class="flex flex-col group"><label for="sharesOnIssue" class="text-[10px] font-semibold mb-0.5 text-slate-400">SOI</label><input type="text" id="sharesOnIssue" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs" value="168,241,667"></div>
+                <div class="flex flex-col group"><label for="spodumenePrice" class="text-[10px] font-semibold mb-0.5 text-slate-400">Spodumene Price</label><div class="flex items-center relative"><span class="absolute left-2 text-slate-400 text-[10px]">$</span><input type="number" id="spodumenePrice" class="py-1 pl-4 pr-2 bg-slate-800 border border-slate-600 rounded text-white text-xs w-full shadow-inner" value="1000"></div></div>
+                <div class="flex flex-col group"><label for="productGrade" class="text-[10px] font-semibold mb-0.5 text-slate-400">% Grade</label><input type="number" id="productGrade" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs" value="6.0" step="0.1"></div>
+                <div class="flex flex-col group"><label for="exchangeRate" class="text-[10px] font-semibold mb-0.5 text-slate-400">Exch Rate</label><input type="number" id="exchangeRate" class="py-1 px-2 bg-slate-800 border border-slate-600 rounded text-white text-xs" value="0.65"></div>
                 <div class="pt-1 pb-1 border-b border-slate-700"><h3 class="text-[10px] font-bold text-orange-500 uppercase tracking-wider">Costs</h3></div>
                 <div class="grid grid-cols-2 gap-2">
-                    <div class="flex flex-col"><label for="nalCosts" class="text-[9px] text-slate-400">NAL</label><input type="number" id="nalCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="750"></div>
-                    <div class="flex flex-col"><label for="moblanCosts" class="text-[9px] text-slate-400">MOBLAN</label><input type="number" id="moblanCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="550"></div>
-                    <div class="flex flex-col"><label for="ewoyaaCosts" class="text-[9px] text-slate-400">EWOYAA</label><input type="number" id="ewoyaaCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="600"></div>
-                    <div class="flex flex-col"><label for="clmCosts" class="text-[9px] text-slate-400">CLM</label><input type="number" id="clmCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="500"></div>
+                    <div class="flex flex-col"><label for="nalCosts" class="text-[9px] text-slate-400 uppercase">NAL</label><input type="number" id="nalCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="750"></div>
+                    <div class="flex flex-col"><label for="moblanCosts" class="text-[9px] text-slate-400 uppercase">MOBLAN</label><input type="number" id="moblanCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="550"></div>
+                    <div class="flex flex-col"><label for="ewoyaaCosts" class="text-[9px] text-slate-400 uppercase">EWOYAA</label><input type="number" id="ewoyaaCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="600"></div>
+                    <div class="flex flex-col"><label for="clmCosts" class="text-[9px] text-slate-400 uppercase">CLM</label><input type="number" id="clmCosts" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="500"></div>
                 </div>
                 <div class="pt-1 pb-1 border-b border-slate-700"><h3 class="text-[10px] font-bold text-orange-500 uppercase tracking-wider">Production</h3></div>
                 <div class="grid grid-cols-2 gap-2">
-                    <div class="flex flex-col"><label for="nalProduction" class="text-[9px] text-slate-400">NAL</label><input type="text" id="nalProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="210,000"></div>
-                    <div class="flex flex-col"><label for="moblanProduction" class="text-[9px] text-slate-400">MOBLAN</label><input type="text" id="moblanProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="600,000"></div>
-                    <div class="flex flex-col"><label for="ewoyaaProduction" class="text-[9px] text-slate-400">EWOYAA</label><input type="text" id="ewoyaaProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="300,000"></div>
-                    <div class="flex flex-col"><label for="clmProduction" class="text-[9px] text-slate-400">CLM</label><input type="text" id="clmProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="250,000"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">NAL</label><input type="text" id="nalProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="210,000"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">MOBLAN</label><input type="text" id="moblanProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="600,000"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">EWOYAA</label><input type="text" id="ewoyaaProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="300,000"></div>
+                    <div class="flex flex-col"><label class="text-[9px] text-slate-400">CLM</label><input type="text" id="clmProduction" class="py-0.5 px-1 bg-slate-800 border border-slate-600 rounded text-white text-[10px]" value="250,000"></div>
                 </div>
                 <button id="calculateButton" class="mt-2 px-4 py-2 bg-orange-600 text-white font-bold rounded shadow-lg text-xs">Calculate</button>
             </div>
@@ -146,7 +146,6 @@
         $(document).ready(function() {
             switchPage('home');
 
-            // --- COOKIE LOGIC ---
             function setCookie(name, value, days) {
                 const date = new Date();
                 date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -162,7 +161,7 @@
                 return null;
             }
 
-            function parseNum(str) { return parseFloat(String(str).replace(/,/g, '')) || 0; }
+            function parseNum(str) { return parseFloat(String(str).trim().replace(/,/g, '')) || 0; }
 
             function initializeInputField(id, defaultValue) {
                 const $input = $(`#${id}`);
@@ -177,7 +176,6 @@
                 const grade = parseFloat($('#productGrade').val()) || 6.0;
                 const exch = parseFloat($('#exchangeRate').val()) || 0;
 
-                // Grade Fix
                 const adjPrice = spodPrice * (grade / 6.0);
 
                 const costs = { nal: parseNum($('#nalCosts').val()), mob: parseNum($('#moblanCosts').val()), ewo: parseNum($('#ewoyaaCosts').val()), clm: parseNum($('#clmCosts').val()) };
@@ -210,7 +208,7 @@
                     const audPrice = exch > 0 ? (usdPrice / exch) / 10 : 0;
                     const myAUD = exch > 0 ? (myUSD / exch) / 10 : 0;
 
-                    rowsHtml += `<tr class="hover:bg-orange-50/50 transition-colors">
+                    rowsHtml += `<tr class="hover:bg-orange-50/50">
                         <td class="py-2 px-3 font-medium">${m}x</td>
                         <td class="py-2 px-3">$${cap.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
                         <td class="py-2 px-3 font-bold text-orange-600">$${usdPrice.toLocaleString(undefined, { minimumFractionDigits: 3 })}</td>
@@ -222,7 +220,6 @@
                 $('#outputTableBody').html(rowsHtml);
             }
 
-            // Initialization
             initializeInputField('numShares', '1');
             initializeInputField('sharesOnIssue', '168,241,667');
             initializeInputField('spodumenePrice', '1000');
